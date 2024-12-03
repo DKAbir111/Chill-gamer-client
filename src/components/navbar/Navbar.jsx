@@ -59,8 +59,8 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-3">
-                    <Link className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Login</Link>
-                    <Link className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Register</Link>
+                    <Link to='/login' className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Login</Link>
+                    <Link to='/register' className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Register</Link>
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox" className="theme-controller" value="synthwave" />

@@ -5,7 +5,7 @@ import { FaFacebook, FaGamepad, FaInstagram, FaPlaystation, FaTwitter, FaYoutube
 import { SiGameloft } from "react-icons/si";
 export default function Footer() {
     return (
-        <footer className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 '>
+        <footer className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ' >
             <div className='container mx-auto flex justify-between items-center py-7'>
                 <h2 className='w-1/2 text-3xl text-white font-semibold'>Get ready to play your heart out! Download now and unlock a world of gaming wonders.</h2>
                 <div className='flex gap-2  text-white'>
@@ -13,9 +13,6 @@ export default function Footer() {
                     <span className='btn btn-ghost btn-circle btn-lg text-2xl hover:bg-white hover:text-pink-400'> <FaPlaystation /></span>
                     <span className='btn btn-ghost btn-circle btn-lg text-2xl hover:bg-white hover:text-pink-400'> <FaGamepad /></span>
                     <span className='btn btn-ghost btn-circle btn-lg text-2xl hover:bg-white hover:text-pink-400'> <SiGameloft /></span>
-
-
-
                 </div>
             </div>
             <section className="bg-black text-white py-10">
