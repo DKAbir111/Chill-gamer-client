@@ -5,10 +5,10 @@ import gameAnim from '../../assets/game-anim.gif'
 export default function Register() {
 
     return (
-        <div className="flex justify-center items-center bg-gray-900 py-20">
-            <div data-aos="fade-right" className='relative'>
+        <div className="flex flex-col md:flex-row justify-center items-center bg-gray-900 py-20 p-2">
+            <div data-aos="fade-right" className='relative flex justify-center'>
                 <img src={boyGame} alt="" className='w-3/5' />
-                <img src={gameAnim} alt="" className='absolute top-0 -z-10 -left-10 opacity-70' />
+                <img src={gameAnim} alt="" className='absolute -z-10 opacity-70' />
             </div>
             <div className="card w-full bg-gray-800 max-w-md shrink-0 shadow-2xl text-white" data-aos="fade-left">
                 <form className="card-body ">
