@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 
 export default function Login() {
-    const { googleSignIn } = useContext(AuthContext)
+    const { googleSignIn, signIn } = useContext(AuthContext)
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
@@ -18,7 +18,18 @@ export default function Login() {
                 console.log(error)
             });
     }
+    const handleSignIn = (e) => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signIn(email, password)
+            .then(result => {
+                console.log(result)
+            }).catch(error => {
+                console.log(error)
+            })
 
+    }
     return (
         <div className="flex flex-col md:flex-row  justify-center items-center bg-gray-900 md:py-20 pb-20 p-2">
             <div data-aos="fade-right" className='relative flex justify-center'>
@@ -26,19 +37,19 @@ export default function Login() {
                 <img src={gameAnim} alt="" className='absolute -z-10 opacity-70' />
             </div>
             <div className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white" data-aos="fade-left">
-                <form className="card-body ">
+                <form className="card-body " onSubmit={handleSignIn}>
                     <h2 className='text-xl font-semibold text-center'>Login</h2>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-white">Email</span>
                         </label>
-                        <input type="email" placeholder="Email" className="input input-bordered bg-gray-700 text-white" required />
+                        <input type="email" placeholder="Email" name='email' className="input input-bordered bg-gray-700 text-white" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-white">Password</span>
                         </label>
-                        <input type="password" placeholder="Password" className="input input-bordered bg-gray-700 text-white" required />
+                        <input type="password" placeholder="Password" name='password' className="input input-bordered bg-gray-700 text-white" required />
                         <label>
                             <Link className="text-xs text-white hover:underline">Forgot password?</Link>
                         </label>
