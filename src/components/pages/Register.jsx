@@ -7,27 +7,27 @@ import { AuthContext } from '../../Context/AuthContext'
 import { updateProfile } from 'firebase/auth'
 import auth from '../../Firebase/firebase.init'
 export default function Register() {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, DbUserInfo } = useContext(AuthContext)
     const handleRegister = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const photo = event.target.photo.value;
         const password = event.target.password.value;
-        const newUser = { name, email, photo, password };
-        console.log(newUser);
+        const newUser = { name, email, photo };
         createUser(email, password)
             .then(result => {
-                console.log(result)
-                updateProfile(auth.currentUser, {
-                    displayName: name,
-                    photoURL: photo
-                })
-                alert("User created successfully, Please login")
-            }).catch(error => [
+                if (result) {
+                    updateProfile(auth.currentUser, {
+                        displayName: name,
+                        photoURL: photo
+                    })
+                    DbUserInfo(newUser)
+                }
+            })
+            .catch(error => {
                 console.log(error.message)
-            ])
-
+            })
     }
     return (
         <div className="flex flex-col md:flex-row justify-center items-center bg-gray-900 py-20 p-2">

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import { toast } from "react-toastify";
 
 export default function AddReview() {
     const { user } = useContext(AuthContext)
@@ -24,7 +25,19 @@ export default function AddReview() {
             email,
             name
         }
-        console.log(newReview);
+        fetch('http://localhost:5001/games', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    toast.success("Review added successfully")
+                }
+            })
     }
     return (
         <div className="bg-gray-900 py-20 p-2">

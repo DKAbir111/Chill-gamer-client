@@ -3,12 +3,30 @@ import PropTypes from 'prop-types'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../Firebase/firebase.init";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 
 export default function AuthProvider({ children }) {
     const provider = new GoogleAuthProvider()
     const [loading, setLoading] = useState(true)
 
+
+    //inser user info in database
+    const DbUserInfo = (user) => {
+        fetch('http://localhost:5001/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    toast.success("User created successfully")
+                }
+            })
+    }
     const [user, setUser] = useState(null)
     //google sign in
     const googleSignIn = () => {
@@ -45,7 +63,8 @@ export default function AuthProvider({ children }) {
         logOut,
         createUser,
         signIn,
-        loading
+        loading,
+        DbUserInfo
     }
     return (
         <AuthContext.Provider value={authInfo}>
