@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
+import { toast } from 'react-toastify';
 
 export default function Login() {
     const { googleSignIn, signIn } = useContext(AuthContext)
@@ -25,8 +26,9 @@ export default function Login() {
         signIn(email, password)
             .then(result => {
                 console.log(result)
+                toast.success('Logged in successfully')
             }).catch(error => {
-                console.log(error)
+                toast.error(error.message)
             })
 
     }
