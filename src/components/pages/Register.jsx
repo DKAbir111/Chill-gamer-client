@@ -10,7 +10,7 @@ export default function Register() {
                 <img src={boyGame} alt="" className='w-3/5' />
                 <img src={gameAnim} alt="" className='absolute -z-10 opacity-70' />
             </div>
-            <div className="card w-full bg-gray-800 max-w-md shrink-0 shadow-2xl text-white" data-aos="fade-left">
+            <div className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white" data-aos="fade-left">
                 <form className="card-body ">
                     <h2 className='text-xl font-semibold text-center'>Register</h2>
                     <div className="form-control">

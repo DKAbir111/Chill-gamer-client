@@ -37,9 +37,7 @@ export default function Login() {
                 </form>
                 <div className="px-20 cursor-pointer mb-4">
                     <span
-                        className="flex items-center gap-1 border rounded-md p-2 justify-center text-sm hover:bg-gray-300 hover:text-black"
-
-                    >
+                        className="flex items-center gap-1 rounded-md p-2 justify-center text-sm">
                         <FcGoogle className="text-2xl" /> Sign in with Google
                     </span>
                 </div>
