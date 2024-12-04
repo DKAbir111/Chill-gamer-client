@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
+
 export default function AddReview() {
+    const { user } = useContext(AuthContext)
     const handleReviewSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -110,7 +114,7 @@ export default function AddReview() {
                     <div className="form-control">
                         <input
                             type="email"
-                            value="user@example.com"
+                            value={user?.email}
                             placeholder="User Email"
                             name="email"
                             className="input input-bordered bg-gray-700 text-white"
@@ -122,7 +126,7 @@ export default function AddReview() {
                     <div className="form-control">
                         <input
                             type="text"
-                            value="John Doe"
+                            value={user?.displayName}
                             placeholder="User Name"
                             name="name"
                             className="input input-bordered bg-gray-700 text-white"
