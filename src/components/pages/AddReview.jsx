@@ -1,16 +1,40 @@
 export default function AddReview() {
+    const handleReviewSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const cover = form.cover.value;
+        const title = form.title.value;
+        const year = form.year.value;
+        const genre = form.genre.value;
+        const rating = form.rating.value;
+        const review = form.review.value;
+        const email = form.email.value;
+        const name = form.name.value;
+        const newReview = {
+            cover,
+            title,
+            year,
+            genre,
+            rating,
+            review,
+            email,
+            name
+        }
+        console.log(newReview);
+    }
     return (
         <div className="bg-gray-900 py-20 p-2">
             <div className="card w-3/5 bg-gray-800 shrink-0 shadow-lg text-white mx-auto" data-aos="fade-left">
-                <form className="card-body grid grid-cols-2 gap-4">
+                <form className="card-body grid grid-cols-2 gap-4" onSubmit={handleReviewSubmit}>
                     <h2 className="text-xl font-semibold text-center col-span-2">Add New Game Review</h2>
 
                     {/* Game Cover Image */}
                     <div className="form-control col-span-2">
                         <input
-                            type="url"
+                            type="text"
                             placeholder="Game Cover Image URL"
                             className="input input-bordered bg-gray-700 text-white"
+                            name="cover"
                             required
                         />
                     </div>
@@ -20,6 +44,7 @@ export default function AddReview() {
                         <input
                             type="text"
                             placeholder="Game Title"
+                            name="title"
                             className="input input-bordered bg-gray-700 text-white"
                             required
                         />
@@ -30,6 +55,7 @@ export default function AddReview() {
                         <input
                             type="number"
                             placeholder="Publishing Year (e.g., 2024)"
+                            name="year"
                             className="input input-bordered bg-gray-700 text-white"
                             min="1900"
                             max={new Date().getFullYear()}
@@ -40,10 +66,14 @@ export default function AddReview() {
                     {/* Genre Dropdown */}
                     <div className="form-control">
                         <select
+
                             className="select input-bordered bg-gray-700 text-white"
+                            name="genre"
                             required
                         >
-                            <option value="" disabled selected>Select Genre</option>
+                            <option value="">
+                                Select Genre
+                            </option>
                             <option value="Action">Action</option>
                             <option value="RPG">RPG</option>
                             <option value="Adventure">Adventure</option>
@@ -60,6 +90,7 @@ export default function AddReview() {
                             className="input input-bordered bg-gray-700 text-white"
                             min="1"
                             max="10"
+                            name="rating"
                             required
                         />
                     </div>
@@ -70,6 +101,7 @@ export default function AddReview() {
                             placeholder="Write your detailed review here..."
                             className="textarea input-bordered bg-gray-700 text-white"
                             rows="4"
+                            name="review"
                             required
                         ></textarea>
                     </div>
@@ -80,6 +112,7 @@ export default function AddReview() {
                             type="email"
                             value="user@example.com"
                             placeholder="User Email"
+                            name="email"
                             className="input input-bordered bg-gray-700 text-white"
                             readOnly
                         />
@@ -91,6 +124,7 @@ export default function AddReview() {
                             type="text"
                             value="John Doe"
                             placeholder="User Name"
+                            name="name"
                             className="input input-bordered bg-gray-700 text-white"
                             readOnly
                         />

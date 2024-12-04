@@ -7,30 +7,36 @@ import { useEffect, useState } from "react";
 
 export default function AuthProvider({ children }) {
     const provider = new GoogleAuthProvider()
+    const [loading, setLoading] = useState(true)
 
     const [user, setUser] = useState(null)
     //google sign in
     const googleSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
     // state observer
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setUser(user);
+            setLoading(false)
         })
         return () => unsubscribe();
     }, [])
 
     //sign in with email and paswords
     const signIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     //Sign out
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
     //cteate user
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const authInfo = {
@@ -38,7 +44,8 @@ export default function AuthProvider({ children }) {
         user,
         logOut,
         createUser,
-        signIn
+        signIn,
+        loading
     }
     return (
         <AuthContext.Provider value={authInfo}>
