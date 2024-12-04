@@ -36,6 +36,7 @@ export default function AddReview() {
             .then(data => {
                 if (data.insertedId) {
                     toast.success("Review added successfully")
+                    form.reset();
                 }
             })
     }

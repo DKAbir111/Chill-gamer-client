@@ -1,18 +1,19 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import Logo from '/game.png'
 import { useContext } from "react"
 import { AuthContext } from "../../Context/AuthContext"
+import { toast } from "react-toastify";
 
 export default function Navbar() {
     const { user, logOut } = useContext(AuthContext);
-
+    const navigate = useNavigate()
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                console.log("User logged out")
+                navigate('/')
             })
             .cath(error => {
-                console.log(error)
+                toast.error(error.message)
             })
     }
     const links = <>
