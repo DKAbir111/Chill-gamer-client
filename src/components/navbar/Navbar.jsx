@@ -5,6 +5,7 @@ import { AuthContext } from "../../Context/AuthContext"
 
 export default function Navbar() {
     const { user, logOut } = useContext(AuthContext);
+
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -78,6 +79,7 @@ export default function Navbar() {
                     {
                         user?.email ?
                             <>
+                                <span className="tooltip tooltip-left w-10 p-1 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 rounded-full" data-tip={user?.displayName}><img src={user?.photoURL} alt="user" className="rounded-full" /></span>
                                 <button onClick={handleLogOut} className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Log Out</button>
                             </> :
                             <> <Link to='/login' className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Login</Link>

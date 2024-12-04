@@ -32,13 +32,13 @@ export default function Login() {
                         <label className="label">
                             <span className="label-text text-white">Email</span>
                         </label>
-                        <input type="email" placeholder="email" className="input input-bordered bg-gray-700 text-white" required />
+                        <input type="email" placeholder="Email" className="input input-bordered bg-gray-700 text-white" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-white">Password</span>
                         </label>
-                        <input type="password" placeholder="password" className="input input-bordered bg-gray-700 text-white" required />
+                        <input type="password" placeholder="Password" className="input input-bordered bg-gray-700 text-white" required />
                         <label>
                             <Link className="text-xs text-white hover:underline">Forgot password?</Link>
                         </label>
