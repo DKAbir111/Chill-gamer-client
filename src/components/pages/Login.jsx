@@ -4,8 +4,20 @@ import boyGame from '../../assets/boy-game.png'
 import gameAnim from '../../assets/game-anim.gif'
 import 'aos/dist/aos.css';
 import { FcGoogle } from 'react-icons/fc';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthContext';
 
 export default function Login() {
+    const { googleSignIn } = useContext(AuthContext)
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
 
     return (
         <div className="flex flex-col md:flex-row  justify-center items-center bg-gray-900 md:py-20 pb-20 p-2">
@@ -37,7 +49,7 @@ export default function Login() {
                 </form>
                 <div className="px-20 cursor-pointer mb-4">
                     <span
-                        className="flex items-center gap-1 rounded-md p-2 justify-center text-sm">
+                        className="flex items-center gap-1 rounded-md p-2 justify-center text-sm" onClick={handleGoogleSignIn}>
                         <FcGoogle className="text-2xl" /> Sign in with Google
                     </span>
                 </div>

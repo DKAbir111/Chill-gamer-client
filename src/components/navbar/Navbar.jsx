@@ -1,7 +1,19 @@
 import { Link, NavLink } from "react-router-dom"
 import Logo from '/game.png'
+import { useContext } from "react"
+import { AuthContext } from "../../Context/AuthContext"
 
 export default function Navbar() {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log("User logged out")
+            })
+            .cath(error => {
+                console.log(error)
+            })
+    }
     const links = <>
         <NavLink to='/' className={({ isActive }) =>
             isActive ? "text-pink-300" : "text-white"
@@ -9,15 +21,19 @@ export default function Navbar() {
         <NavLink to='/allreview' className={({ isActive }) =>
             isActive ? "text-pink-300" : "text-white"
         }>All Reviews</NavLink>
-        <NavLink to='/addreview' className={({ isActive }) =>
-            isActive ? "text-pink-300" : "text-white"
-        }>Add Review</NavLink>
-        <NavLink className={({ isActive }) =>
-            isActive ? "text-pink-300" : "text-white"
-        }>My Reviews </NavLink>
-        <NavLink className={({ isActive }) =>
-            isActive ? "text-pink-300" : "text-white"
-        }>Game WatchList </NavLink>
+        {
+            user && <>
+                <NavLink to='/addreview' className={({ isActive }) =>
+                    isActive ? "text-pink-300" : "text-white"
+                }>Add Review</NavLink>
+                <NavLink className={({ isActive }) =>
+                    isActive ? "text-pink-300" : "text-white"
+                }>My Reviews </NavLink>
+                <NavLink className={({ isActive }) =>
+                    isActive ? "text-pink-300" : "text-white"
+                }>Game WatchList </NavLink>
+            </>
+        }
     </>
     return (
         <nav className="bg-black">
@@ -59,8 +75,14 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-3">
-                    <Link to='/login' className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Login</Link>
-                    <Link to='/register' className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Register</Link>
+                    {
+                        user?.email ?
+                            <>
+                                <button onClick={handleLogOut} className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Log Out</button>
+                            </> :
+                            <> <Link to='/login' className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Login</Link>
+                                <Link to='/register' className="btn btn-sm rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Register</Link></>
+                    }
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox" className="theme-controller" value="synthwave" />
