@@ -8,6 +8,7 @@ import AllReview from "../components/pages/AllReview";
 import MyReview from "../components/pages/MyReview";
 import GameWatchList from "../components/pages/GameWatchList";
 import HomeLayout from "../components/layouts/HomeLayout";
+import ReviewDetails from "../components/pages/ReviewDetails";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />
+            },
+            {
+                path: "/review/:id",
+                element: <ReviewDetails />,
+                loader: async ({ params }) => await fetch(`http://localhost:5001/review/${params.id}`)
             }
         ]
     },

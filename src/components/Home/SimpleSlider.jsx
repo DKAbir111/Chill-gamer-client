@@ -20,7 +20,7 @@ export default function SimpleSlider() {
     const data = useLoaderData();
 
     return (
-        <div className="slider-container relative bg-black">
+        <div className="slider-container relative bg-black overflow-hidden">
             <Slider {...settings}>
                 {data.map((banner) => (
                     <div key={banner._id} className="h-[550px] relative overflow-hidden">

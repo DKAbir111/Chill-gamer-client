@@ -1,6 +1,6 @@
-import React from 'react'
 import { FaGamepad, FaGooglePlay, FaPlaystation } from 'react-icons/fa6'
 import { SiGameloft } from 'react-icons/si'
+import PropTypes from 'prop-types'
 
 export default function TopRatedCard({ datum }) {
     return (
@@ -34,4 +34,8 @@ export default function TopRatedCard({ datum }) {
             }
         </div>
     )
+}
+// ptop-type
+TopRatedCard.propTypes = {
+    datum: PropTypes.object.isRequired,
 }

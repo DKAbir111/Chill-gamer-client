@@ -12,7 +12,7 @@ function ReviewSlider() {
         autoplay: true,
     };
     return (
-        <div className="slider-contai">
+        <div className="slider-container">
             <Slider {...settings}>
                 <img src={warrior} alt="" />
                 <img src={reveger} alt="" />
