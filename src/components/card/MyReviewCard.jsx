@@ -27,14 +27,13 @@ export default function MyReviewCard({ myreview }) {
             </td>
             <td>{myreview.rating}</td>
             <td className="flex gap-3">
-                <Link className="btn btn-sm btn-primary bg-indigo-500 border-none">Update</Link>
+                <Link to={`/update/${myreview._id}`} className="btn btn-sm btn-primary bg-indigo-500 border-none">Update</Link>
                 <button className="btn btn-sm btn-error border-none bg-pink-500">Delete</button>
-
             </td>
+
         </tr>
     )
 }
-
 MyReviewCard.propTypes = {
     myreview: PropTypes.object.isRequired,
 }

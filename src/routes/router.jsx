@@ -9,6 +9,7 @@ import MyReview from "../components/pages/MyReview";
 import GameWatchList from "../components/pages/GameWatchList";
 import HomeLayout from "../components/layouts/HomeLayout";
 import ReviewDetails from "../components/pages/ReviewDetails";
+import UpdateReview from "../components/pages/UpdateReview";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
             {
                 path: "/review/:id",
                 element: <ReviewDetails />,
+                loader: async ({ params }) => await fetch(`http://localhost:5001/review/${params.id}`)
+            },
+            {
+                path: "/update/:id",
+                element: <UpdateReview />,
                 loader: async ({ params }) => await fetch(`http://localhost:5001/review/${params.id}`)
             }
         ]
