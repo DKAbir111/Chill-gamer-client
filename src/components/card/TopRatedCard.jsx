@@ -1,6 +1,7 @@
 import { FaGamepad, FaGooglePlay, FaPlaystation } from 'react-icons/fa6'
 import { SiGameloft } from 'react-icons/si'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 export default function TopRatedCard({ datum }) {
     return (
@@ -18,7 +19,7 @@ export default function TopRatedCard({ datum }) {
                             <h2 className="text-2xl text-pink-400">{datum.title}</h2>
                             <p className='font-extralight'>If a dog chews shoes whose shoes does he choose?</p>
                             <div className="card-actions">
-                                <button className="text-white btn bg-gradient-to-r border-none from-indigo-500 via-purple-500 to-pink-500 font-medium btn-sm rounded-full">Explore Details</button>
+                                <Link to={`/review/${datum._id}`} className="text-white btn bg-gradient-to-r border-none from-indigo-500 via-purple-500 to-pink-500 font-medium btn-sm rounded-full">Explore Details</Link>
                             </div>
                             <div className='flex gap-2  text-white'>
                                 <span className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'> <FaGooglePlay /></span>

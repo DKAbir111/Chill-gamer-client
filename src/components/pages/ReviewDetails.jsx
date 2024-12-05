@@ -1,34 +1,65 @@
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const ReviewDetails = () => {
-    const gameData = {
-        cover: "https://c4.wallpaperflare.com/wallpaper/292/805/107/battlefield-1-battlefield-wallpaper-preview.jpg",
-        title: "Battle Royale Pro",
-        year: "2022",
-        genre: "Adventure",
-        rating: "7",
-        review: "It is an incredible journey through stunning landscapes with challenging puzzles.",
-        email: "darun15-14188@diu.edu.bd",
-        name: "DARUN KARAS ABIR 201-15-14188",
-    };
+    const { user } = useContext(AuthContext)
+
+    const gameData = useLoaderData()
+    console.log(gameData)
     const navigate = useNavigate()
+
+    const handleWatchList = async () => {
+
+        const watchList = {
+            ...gameData,
+            name: user.displayName,
+            email: user.email
+        }
+
+        try {
+            await fetch('http://localhost:5001/watchlist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(watchList)
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        toast.success('Game added to watchlist')
+                        return;
+                    }
+                    toast.error(data.message)
+                })
+
+        } catch {
+            toast.error('Failed to add game to watchlist')
+        }
+
+    }
     return (
         <div className="bg-gradient-to-t relative from-gray-900 to-black h-[600px] flex flex-col justify-center items-center">
-
-
             <div className="container gap-5 mx-auto p-5 border border-gray-700 rounded-lg flex justify-between relative  bg-gray-800 bg-opacity-30">
                 <div className="absolute -top-16">
                     <button onClick={() => navigate(-1)} className="btn  rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">← Go Back</button>
                 </div>
                 <div className="flex flex-col gap-3 w-1/2">
-                    <div className="flex-1 space-y-4">
+                    <div className="flex-1 space-y-2">
                         <p className="text-lg font-thin text-pink-400">Review Details</p>
                         <h2 className="text-white text-4xl">{gameData.title}</h2>
-                        <p className="text-gray-400">{gameData.review} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus provident corrupti facilis? Et numquam debitis ab sunt, aperiam magnam commodi.</p>
+                        <p className="text-gray-400">{gameData.review}</p>
                         <p className="text-gray-400">Published Year: {gameData.year}</p>
                         <p className="text-gray-400">Genre: {gameData.genre}</p>
                     </div>
 
+                    <div>
+                        <button onClick={handleWatchList} className="btn border-pink-400 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                            Add to WatchList
+                        </button>
+
+                    </div>
                     <div className="text-center border-t border-gray-700 pt-4 italic">
                         <p className="text-sm text-gray-500">Reviewed by:</p>
                         <p className="text-white">{gameData.name}</p>
