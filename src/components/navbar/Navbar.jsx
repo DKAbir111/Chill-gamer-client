@@ -31,7 +31,7 @@ export default function Navbar() {
                 <NavLink to={'/myreview'} className={({ isActive }) =>
                     isActive ? "text-pink-300" : "text-white"
                 }>My Reviews </NavLink>
-                <NavLink to={'/game-watch-list'} className={({ isActive }) =>
+                <NavLink to={`/game-watch-list/${user.email}`} className={({ isActive }) =>
                     isActive ? "text-pink-300" : "text-white"
                 }>Game WatchList </NavLink>
             </>

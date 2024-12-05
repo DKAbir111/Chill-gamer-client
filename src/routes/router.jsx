@@ -26,8 +26,9 @@ const router = createBrowserRouter([
                 loader: async () => await fetch('http://localhost:5001/reviews')
             },
             {
-                path: "/game-watch-list",
-                element: <PrivateRoute><GameWatchList /></PrivateRoute>
+                path: "/game-watch-list/:email",
+                element: <PrivateRoute><GameWatchList /></PrivateRoute>,
+                loader: async ({ params }) => await fetch(`http://localhost:5001/watchlist/${params.email}`)
             },
             {
                 path: "/addreview",
