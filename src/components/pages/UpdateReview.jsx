@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 export default function UpdateReview() {
     const { user } = useContext(AuthContext)
     const data = useLoaderData()
+    console.log(data)
     const handleReviewUpdate = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -43,9 +44,9 @@ export default function UpdateReview() {
                 else {
                     toast.error('Failed to update review')
                 }
-
             })
     }
+
     return (
         <div className="bg-gray-900 py-20 p-2">
             <div className="card w-3/5 bg-gray-800 shrink-0 shadow-lg text-white mx-auto" data-aos="fade-left">

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function MyReviewCard({ myreview }) {
+export default function MyReviewCard({ myreview, handleDelete }) {
+
+
     return (
         <tr>
 
@@ -28,7 +30,7 @@ export default function MyReviewCard({ myreview }) {
             <td>{myreview.rating}</td>
             <td className="flex gap-3">
                 <Link to={`/update/${myreview._id}`} className="btn btn-sm btn-primary bg-indigo-500 border-none">Update</Link>
-                <button className="btn btn-sm btn-error border-none bg-pink-500">Delete</button>
+                <button onClick={() => handleDelete(myreview._id)} className="btn btn-sm btn-error border-none bg-pink-500">Delete</button>
             </td>
 
         </tr>
@@ -36,4 +38,5 @@ export default function MyReviewCard({ myreview }) {
 }
 MyReviewCard.propTypes = {
     myreview: PropTypes.object.isRequired,
+    handleDelete: PropTypes.func.isRequired,
 }

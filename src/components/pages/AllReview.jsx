@@ -20,8 +20,9 @@ export default function AllReview() {
                 </svg>
             </label>
             <div className="grid grid-cols-3 gap-5 container mx-auto">
-
+                <h3 className="col-span-2 text-white">Total Review:{data.length}</h3>
                 <div className="flex flex-col gap-4 col-span-2 overflow-auto h-screen">
+
 
                     {
                         data.map(datum => <AllReviewCard key={datum._id} datum={datum} />)
