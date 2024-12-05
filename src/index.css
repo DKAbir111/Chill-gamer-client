@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,4 @@
 
 html {
   @apply font-manrope;
-}
-.slick-slide {
-  transition: opacity 1s ease-in-out; /* Adjust duration to match your fade speed */
-  background-color: black; /* Black background during transitions */
-}
-
-.slick-current {
-  background-color: transparent !important; /* Ensure no background for the current slide */
 }

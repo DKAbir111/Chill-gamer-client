@@ -27,6 +27,8 @@ export default function TopRatedCard({ datum }) {
                                 <span className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'> <SiGameloft /></span>
                             </div>
                         </div>
+
+
                     </div> :
                     <div className="text-center">No Data Found</div>
             }

@@ -1,3 +1,4 @@
+import Adventure from "../Home/Adventure";
 import HighestRated from "../Home/HighestRated";
 import SimpleSlider from "../Home/SimpleSlider";
 
@@ -7,6 +8,7 @@ export default function HomeLayout() {
         <div>
             <SimpleSlider />
             <HighestRated />
+            <Adventure />
         </div>
     )
 }
