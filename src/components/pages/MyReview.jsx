@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import MyReviewCard from "../card/MyReviewCard";
+import { AuthContext } from "../../Context/AuthContext";
 
 export default function MyReview() {
     const data = useLoaderData() || [];
     const [filterData, setFilterData] = useState(data);
-
+    const { darkMode } = useContext(AuthContext)
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -48,47 +49,49 @@ export default function MyReview() {
     };
 
     return (
-        <div className="bg-gray-900 py-20">
-            <div className="container mx-auto text-white">
-                <p className="text-xl font-semibold mb-4">
-                    Total Reviews: {filterData?.length || 0}
-                </p>
-                {filterData.length > 0 ? (
-                    <div className="overflow-x-auto">
-                        <table className="table">
-                            <thead className="text-white">
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Rating</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {filterData.map((myreview) => (
-                                    <MyReviewCard
-                                        key={myreview._id}
-                                        myreview={myreview}
-                                        handleDelete={handleDelete}
-                                    />
-                                ))}
-                            </tbody>
-                            <tfoot>
-                                <tr className="text-white">
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Rating</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                ) : (
-                    <div className="text-center py-10">
-                        <p className="text-gray-400">No reviews found.</p>
-                    </div>
-                )}
+        <section className={darkMode ? "dark" : ""}>
+            <div className="bg-gray-900 py-20 dark:bg-black">
+                <div className="container mx-auto text-white">
+                    <p className="text-xl font-semibold mb-4">
+                        Total Reviews: {filterData?.length || 0}
+                    </p>
+                    {filterData.length > 0 ? (
+                        <div className="overflow-x-auto">
+                            <table className="table">
+                                <thead className="text-white">
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Rating</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filterData.map((myreview) => (
+                                        <MyReviewCard
+                                            key={myreview._id}
+                                            myreview={myreview}
+                                            handleDelete={handleDelete}
+                                        />
+                                    ))}
+                                </tbody>
+                                <tfoot>
+                                    <tr className="text-white">
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Rating</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    ) : (
+                        <div className="text-center py-10">
+                            <p className="text-gray-400">No reviews found.</p>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }

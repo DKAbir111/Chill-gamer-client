@@ -6,7 +6,7 @@ const Trending = () => {
     const data = useLoaderData()
     const featuredData = data.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)).slice(0, 3)
     return (
-        <div className="bg-[#0f172a] text-white py-16 px-4 md:px-16">
+        <div className="bg-gray-900 text-white py-16 px-4 md:px-16 dark:bg-black">
             <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Left Section */}
                 <div>

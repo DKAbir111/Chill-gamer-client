@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export default function AuthProvider({ children }) {
     const provider = new GoogleAuthProvider()
     const [loading, setLoading] = useState(true)
-
+    const [darkMode, setDarkMode] = useState(false)
 
     //inser user info in database
     const DbUserInfo = (user) => {
@@ -56,6 +56,11 @@ export default function AuthProvider({ children }) {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+    //handleTheme
+    const handleDarkMode = () => {
+        setDarkMode(!darkMode)
+    }
+
     const authInfo = {
         googleSignIn,
         user,
@@ -63,7 +68,9 @@ export default function AuthProvider({ children }) {
         createUser,
         signIn,
         loading,
-        DbUserInfo
+        DbUserInfo,
+        handleDarkMode,
+        darkMode
     }
     return (
         <AuthContext.Provider value={authInfo}>

@@ -25,7 +25,7 @@ export default function SimpleSlider() {
                 {data.map((banner) => (
                     <div key={banner._id} className="h-[550px] relative overflow-hidden">
                         <img src={banner.cover} alt={banner.title} className="object-cover w-full h-full" />
-                        <div className="absolute inset-0 bg-black bg-opacity-70"></div> {/* Black overlay */}
+                        <div className="absolute inset-0 bg-black bg-opacity-50 dark:bg-opacity-70"></div> {/* Black overlay */}
                     </div>
                 ))}
             </Slider>

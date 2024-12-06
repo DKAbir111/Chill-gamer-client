@@ -8,7 +8,8 @@ export default function TopRatedCard({ datum }) {
         <div>
             {
                 datum ?
-                    <div className="card bg-gradient-to-b from-gray-900 to-gray-800  shadow-xl backdrop-blur-lg bg-opacity-50 border border-gray-600 hover:border-pink-400">
+                    <div className="h-[490px] card bg-gradient-to-b from-gray-900 to-gray-800 shadow-xl backdrop-blur-lg bg-opacity-50 border border-gray-600 hover:border-pink-400 dark:from-gray-800 dark:to-black dark:bg-opacity-70 dark:border-gray-500 dark:hover:border-blue-400">
+
                         <figure className="px-4 pt-4">
                             <img
                                 src={datum.cover}
@@ -17,7 +18,7 @@ export default function TopRatedCard({ datum }) {
                         </figure>
                         <div className="flex flex-col  gap-3 items-center text-center text-white p-5">
                             <h2 className="text-2xl text-pink-400">{datum.title}</h2>
-                            <p className='font-extralight'>If a dog chews shoes whose shoes does he choose?</p>
+                            <p className='font-extralight'>{datum?.review?.split(" ")?.slice(0, 7)?.join(" ")}</p>
                             <div className="card-actions">
                                 <Link to={`/review/${datum._id}`} className="text-white btn bg-gradient-to-r border-none from-indigo-500 via-purple-500 to-pink-500 font-medium btn-sm rounded-full">Explore Details</Link>
                             </div>

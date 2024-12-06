@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export default function AllReviewCard({ datum }) {
     return (
-        <div className="flex justify-center items-center gap-5 w-full bg-gray-800 p-3  mx-auto border rounded-lg border-gray-500 backdrop-blur-lg bg-opacity-70 hover:border-pink-400">
+        <div className="flex justify-center items-center gap-5 w-full bg-gray-800 p-3  mx-auto border rounded-lg border-gray-500 backdrop-blur-lg bg-opacity-70 hover:border-pink-400 dark:bg-gray-800 dark:hover:border-violet-400">
             <div>
                 <img src={datum.cover} alt="" className="h-32 w-48 rounded-lg" />
             </div>
