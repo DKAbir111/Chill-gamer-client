@@ -2,17 +2,26 @@ import { useLoaderData } from "react-router-dom"
 import AllReviewCard from "../card/AllReviewCard"
 import ReviewSlider from "../card/ReviewSlider"
 import { useState } from "react"
+import { FaSortAmountDown } from "react-icons/fa";
+import { IoFilterSharp } from "react-icons/io5";
 
 export default function AllReview() {
-    const data = useLoaderData() || []
-    const [sortedData, setSortedData] = useState(data)
+    const data = useLoaderData() || [];
+    const [sortedData, setSortedData] = useState(data);
+
     const sortByRating = () => {
-        const sortedData = [...data].sort((a, b) => parseInt(b.rating) - parseInt(a.rating));
-        setSortedData(sortedData);
+        const result = [...sortedData].sort((a, b) => parseInt(b.rating) - parseInt(a.rating));
+        setSortedData(result);
     };
+
     const sortByYear = () => {
-        const sortedData = [...data].sort((a, b) => parseInt(b.year) - parseInt(a.year));
-        setSortedData(sortedData);
+        const result = [...sortedData].sort((a, b) => parseInt(b.year) - parseInt(a.year));
+        setSortedData(result);
+    };
+
+    const handleFilter = (value) => {
+        const result = data.filter(datum => datum.genre.toLowerCase() === value.toLowerCase());
+        setSortedData(result);
     };
 
     return (
@@ -32,9 +41,19 @@ export default function AllReview() {
             </label>
             <div className="grid grid-cols-3 gap-5 container mx-auto">
                 <div className="col-span-2 flex justify-between items-center">
+                    <div className="dropdown dropdown-bottom">
+                        <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700"><IoFilterSharp /> Filter by Genres </div>
+                        <ul tabIndex={0} className="dropdown-content menu bg-gray-800 text-white rounded-box z-[1] w-52 p-2 shadow">
+                            <li onClick={() => handleFilter('action')}><a className="font-semibold">Action</a></li>
+                            <li onClick={() => handleFilter('rpg')}><a className="font-semibold">RPG</a></li>
+                            <li onClick={() => handleFilter('adventure')}><a className="font-semibold">Adventure</a></li>
+                            <li onClick={() => handleFilter('strategy')}><a className="font-semibold">Strategy</a></li>
+                            <li onClick={() => handleFilter('sports')}><a className="font-semibold">Sports</a></li>
+                        </ul>
+                    </div>
                     <h3 className="text-white text-xl font-semibold">Total Review: {sortedData.length}</h3>
                     <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700">Sort</div>
+                        <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700"><FaSortAmountDown /> Sort</div>
                         <ul tabIndex={0} className="dropdown-content menu bg-gray-800 rounded-box z-[1] w-52 p-2 shadow text-white">
                             <li onClick={sortByRating}><a className="font-semibold">Sort By Rating</a></li>
                             <li onClick={sortByYear}><a className="font-semibold">Sort By Year</a></li>
