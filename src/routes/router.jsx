@@ -10,11 +10,13 @@ import GameWatchList from "../components/pages/GameWatchList";
 import HomeLayout from "../components/layouts/HomeLayout";
 import ReviewDetails from "../components/pages/ReviewDetails";
 import UpdateReview from "../components/pages/UpdateReview";
+import ErrorPage from "../components/pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
