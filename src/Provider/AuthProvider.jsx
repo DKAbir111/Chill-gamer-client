@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../Firebase/firebase.init";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 
 
 export default function AuthProvider({ children }) {
@@ -23,7 +22,7 @@ export default function AuthProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    toast.success("User created successfully")
+                    return;
                 }
             })
     }

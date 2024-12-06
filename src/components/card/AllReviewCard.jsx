@@ -9,7 +9,7 @@ export default function AllReviewCard({ datum }) {
             </div>
 
             <div className="flex-1">
-                <h2 className="text-pink-400 text-xl mb-2 font-thin">{datum.title}</h2>
+                <h2 className="text-pink-400 text-xl mb-2 font-thin">{datum.title} || {datum.year}</h2>
                 <p className="text-white text-sm font-thin mb-2">{datum.review}</p>
                 <Link to={`/review/${datum._id}`} className="btn btn-sm text-sm  rounded-full bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">Explore Details</Link>
             </div>
