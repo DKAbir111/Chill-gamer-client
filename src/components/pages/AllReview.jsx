@@ -3,7 +3,7 @@ import AllReviewCard from "../card/AllReviewCard"
 import ReviewSlider from "../card/ReviewSlider"
 
 export default function AllReview() {
-    const data = useLoaderData()
+    const data = useLoaderData() || []
     return (
         <div className="bg-black pb-20">
             <label className="input input-bordered flex items-center gap-2 w-1/2 mx-auto mb-10 bg-gray-700 text-white">
@@ -20,12 +20,14 @@ export default function AllReview() {
                 </svg>
             </label>
             <div className="grid grid-cols-3 gap-5 container mx-auto">
-                <h3 className="col-span-2 text-white">Total Review:{data.length}</h3>
+                <h3 className="col-span-2 text-white text-xl font-semibold">Total Review: {data.length}</h3>
                 <div className="flex flex-col gap-4 col-span-2 overflow-auto h-screen">
 
-
-                    {
-                        data.map(datum => <AllReviewCard key={datum._id} datum={datum} />)
+                    {data?.length > 0 ?
+                        (data?.map(datum => <AllReviewCard key={datum._id} datum={datum} />)) :
+                        (<div className="text-center py-10">
+                            <p className="text-gray-400">No reviews found.</p>
+                        </div>)
                     }
                 </div>
                 <div className="overflow-hidden">

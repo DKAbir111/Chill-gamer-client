@@ -23,7 +23,7 @@ export default function MyReviewCard({ myreview, handleDelete }) {
                 </div>
             </td>
             <td>
-                {myreview.review.split(" ").slice(0, 7).join(" ")}...
+                {myreview?.review?.split(" ").slice(0, 7).join(" ")}...
                 <br />
                 <span className="badge badge-ghost badge-sm">{myreview.genre}</span>
             </td>

@@ -1,41 +1,50 @@
-import { useLoaderData } from "react-router-dom"
-import WatchListCard from "../card/WatchListCard"
-
+import { useLoaderData } from "react-router-dom";
+import WatchListCard from "../card/WatchListCard";
 
 export default function GameWatchList() {
-    const data = useLoaderData()
+    const data = useLoaderData() || []; // Fallback to an empty array if data is undefined
+
     return (
         <div className="bg-gray-900 py-20">
-            <div className="overflow-x-auto container mx-auto text-white">
-                <table className="table">
-                    {/* head */}
-                    <thead className="text-white">
-                        <tr>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Rating</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* Row */}
-                        {
-                            data.map(watchList => <WatchListCard key={watchList._id} watchList={watchList} />)
-                        }
-
-                    </tbody>
-                    {/* foot */}
-                    <tfoot>
-                        <tr className="text-white">
-
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Rating</th>
-                            <th>Details</th>
-                        </tr>
-                    </tfoot>
-                </table>
+            <div className="container mx-auto text-white">
+                {data.length > 0 ? (
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            {/* head */}
+                            <thead className="text-white">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Rating</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* Row */}
+                                {data.map((watchList) => (
+                                    <WatchListCard
+                                        key={watchList._id}
+                                        watchList={watchList}
+                                    />
+                                ))}
+                            </tbody>
+                            {/* foot */}
+                            <tfoot>
+                                <tr className="text-white">
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Rating</th>
+                                    <th>Details</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                ) : (
+                    <div className="text-center py-10">
+                        <p className="text-gray-400">No games in your watchlist yet.</p>
+                    </div>
+                )}
             </div>
         </div>
-    )
+    );
 }

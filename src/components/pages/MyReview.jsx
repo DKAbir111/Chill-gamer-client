@@ -1,12 +1,12 @@
-import { useLoaderData } from "react-router-dom"
-import MyReviewCard from "../card/MyReviewCard"
-import Swal from "sweetalert2";
 import { useState } from "react";
-
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import MyReviewCard from "../card/MyReviewCard";
 
 export default function MyReview() {
-    const data = useLoaderData()
-    const [filterData, setFilterData] = useState(data)
+    const data = useLoaderData() || [];
+    const [filterData, setFilterData] = useState(data);
+
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -19,19 +19,19 @@ export default function MyReview() {
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5001/review/${id}`, {
-                    method: 'DELETE'
+                    method: "DELETE",
                 })
-                    .then(res => res.json())
-                    .then(data => {
+                    .then((res) => res.json())
+                    .then((data) => {
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your review has been deleted.",
-                                icon: "success"
+                                icon: "success",
                             });
-
-                            // Correctly filter the local state
-                            const newData = filterData.filter(datum => datum._id !== id);
+                            const newData = filterData.filter(
+                                (datum) => datum._id !== id
+                            );
                             setFilterData(newData);
                         }
                     })
@@ -40,7 +40,7 @@ export default function MyReview() {
                         Swal.fire({
                             title: "Error!",
                             text: "Failed to delete the review. Please try again later.",
-                            icon: "error"
+                            icon: "error",
                         });
                     });
             }
@@ -49,37 +49,46 @@ export default function MyReview() {
 
     return (
         <div className="bg-gray-900 py-20">
-            <div className="overflow-x-auto container mx-auto text-white">
-                <p className="text-xl font-semibold mb-2">Total Review: {filterData.length}</p>
-                <table className="table">
-                    {/* head */}
-                    <thead className="text-white">
-                        <tr>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Rating</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* Row */}
-                        {
-                            filterData.map(myreview => <MyReviewCard key={myreview._id} myreview={myreview} handleDelete={handleDelete} />)
-                        }
-
-                    </tbody>
-                    {/* foot */}
-                    <tfoot>
-                        <tr className="text-white">
-
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Rating</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
-                </table>
+            <div className="container mx-auto text-white">
+                <p className="text-xl font-semibold mb-4">
+                    Total Reviews: {filterData?.length || 0}
+                </p>
+                {filterData.length > 0 ? (
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            <thead className="text-white">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Rating</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filterData.map((myreview) => (
+                                    <MyReviewCard
+                                        key={myreview._id}
+                                        myreview={myreview}
+                                        handleDelete={handleDelete}
+                                    />
+                                ))}
+                            </tbody>
+                            <tfoot>
+                                <tr className="text-white">
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Rating</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                ) : (
+                    <div className="text-center py-10">
+                        <p className="text-gray-400">No reviews found.</p>
+                    </div>
+                )}
             </div>
         </div>
-    )
+    );
 }

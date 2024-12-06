@@ -10,12 +10,13 @@ export default function Navbar() {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                navigate('/')
+                navigate('/');
             })
-            .cath(error => {
-                toast.error(error.message)
-            })
-    }
+            .catch(error => {
+                toast.error(error.message);
+            });
+    };
+
     const links = <>
         <NavLink to='/' className={({ isActive }) =>
             isActive ? "text-pink-300" : "text-white"

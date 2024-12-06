@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import boyGame from '../../assets/boy-game.png'
 import gameAnim from '../../assets/game-anim.gif'
 import 'aos/dist/aos.css';
@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 
 export default function Login() {
     const { googleSignIn, signIn } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
@@ -25,8 +26,11 @@ export default function Login() {
         const password = e.target.password.value;
         signIn(email, password)
             .then(result => {
-                console.log(result)
-                toast.success('Logged in successfully')
+                if (result?.user?.email) {
+                    toast.success('Logged in successfully')
+                    e.target.reset();
+                    navigate('/')
+                }
             }).catch(error => {
                 toast.error(error.message)
             })

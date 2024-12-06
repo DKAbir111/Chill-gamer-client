@@ -7,7 +7,6 @@ const ReviewDetails = () => {
     const { user } = useContext(AuthContext)
 
     const gameData = useLoaderData()
-    console.log(gameData)
     const navigate = useNavigate()
 
     const handleWatchList = async () => {
@@ -15,9 +14,10 @@ const ReviewDetails = () => {
         const watchList = {
             ...gameData,
             name: user.displayName,
-            email: user.email
+            email: user.email,
+            insertedId: gameData._id
         }
-
+        delete watchList._id;
         try {
             await fetch('http://localhost:5001/watchlist', {
                 method: 'POST',

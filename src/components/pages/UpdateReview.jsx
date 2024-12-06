@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function UpdateReview() {
     const { user } = useContext(AuthContext)
     const data = useLoaderData()
+    const navigate = useNavigate()
     console.log(data)
     const handleReviewUpdate = (e) => {
         e.preventDefault();
@@ -16,8 +17,6 @@ export default function UpdateReview() {
         const genre = form.genre.value;
         const rating = form.rating.value;
         const review = form.review.value;
-        const email = form.email.value;
-        const name = form.name.value;
         const newReview = {
             cover,
             title,
@@ -25,9 +24,8 @@ export default function UpdateReview() {
             genre,
             rating,
             review,
-            email,
-            name
         }
+        console.log(newReview)
         fetch(`http://localhost:5001/update/${data._id}`, {
             method: 'PUT',
             headers: {
@@ -40,6 +38,7 @@ export default function UpdateReview() {
                 if (data.modifiedCount > 0) {
                     toast.success('Review updated successfully')
                     form.reset();
+                    navigate(-1);
                 }
                 else {
                     toast.error('Failed to update review')

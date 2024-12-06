@@ -50,12 +50,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/review/:id",
-                element: <ReviewDetails />,
+                element: <PrivateRoute><ReviewDetails /></PrivateRoute>,
                 loader: async ({ params }) => await fetch(`http://localhost:5001/review/${params.id}`)
             },
             {
                 path: "/update/:id",
-                element: <UpdateReview />,
+                element: <PrivateRoute><UpdateReview /></PrivateRoute>,
                 loader: async ({ params }) => await fetch(`http://localhost:5001/review/${params.id}`)
             }
         ]
