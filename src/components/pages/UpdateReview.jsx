@@ -1,50 +1,66 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function UpdateReview() {
-    const { user } = useContext(AuthContext)
-    const data = useLoaderData()
-    const navigate = useNavigate()
-    console.log(data)
+    const { user } = useContext(AuthContext);
+    const data = useLoaderData();
+    const navigate = useNavigate();
+
+    const [review, setReview] = useState(data.review || "");
+    const [reviewError, setReviewError] = useState("");
+
+    const handleReviewChange = (e) => {
+        const value = e.target.value;
+        if (value.length > 200) {
+            setReviewError("Review cannot exceed 200 characters.");
+        } else {
+            setReviewError("");
+            setReview(value);
+        }
+    };
+
     const handleReviewUpdate = (e) => {
         e.preventDefault();
+        if (review.length > 200) {
+            toast.error("Review is too long. Please limit it to 200 characters.");
+            return;
+        }
+
         const form = e.target;
         const cover = form.cover.value;
         const title = form.title.value;
         const year = form.year.value;
         const genre = form.genre.value;
         const rating = form.rating.value;
-        const review = form.review.value;
-        const newReview = {
+
+        const updatedReview = {
             cover,
             title,
             year,
             genre,
             rating,
             review,
-        }
-        console.log(newReview)
+        };
+
         fetch(`http://localhost:5001/update/${data._id}`, {
-            method: 'PUT',
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(newReview)
+            body: JSON.stringify(updatedReview),
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    toast.success('Review updated successfully')
-                    form.reset();
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.modifiedCount > 0) {
+                    toast.success("Review updated successfully");
                     navigate(-1);
+                } else {
+                    toast.error("Failed to update review");
                 }
-                else {
-                    toast.error('Failed to update review')
-                }
-            })
-    }
+            });
+    };
 
     return (
         <div className="bg-gray-900 py-20 p-2">
@@ -93,15 +109,12 @@ export default function UpdateReview() {
                     {/* Genre Dropdown */}
                     <div className="form-control">
                         <select
-
                             className="select input-bordered bg-gray-700 text-white"
                             name="genre"
                             defaultValue={data.genre}
                             required
                         >
-                            <option value="">
-                                Select Genre
-                            </option>
+                            <option value="">Select Genre</option>
                             <option value="Action">Action</option>
                             <option value="RPG">RPG</option>
                             <option value="Adventure">Adventure</option>
@@ -131,9 +144,11 @@ export default function UpdateReview() {
                             className="textarea input-bordered bg-gray-700 text-white"
                             rows="4"
                             name="review"
-                            defaultValue={data.review}
+                            value={review}
+                            onChange={handleReviewChange}
                             required
                         ></textarea>
+                        {reviewError && <small className="text-red-500">{reviewError}</small>}
                     </div>
 
                     {/* User Email */}

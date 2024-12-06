@@ -29,7 +29,7 @@ export default function AllReview() {
 
     return (
         <div className="bg-black pb-20">
-            <label className="input input-bordered flex items-center gap-2 w-1/2 mx-auto mb-10 bg-gray-700 text-white">
+            {/* <label className="input input-bordered flex items-center gap-2 w-1/2 mx-auto mb-10 bg-gray-700 text-white">
                 <input type="text" className="grow" placeholder="Search" />
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +41,8 @@ export default function AllReview() {
                         d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
                         clipRule="evenodd" />
                 </svg>
-            </label>
-            <div className="grid grid-cols-3 gap-5 container mx-auto">
+            </label> */}
+            <div className="grid grid-cols-3 gap-5 container mx-auto pt-10">
                 <div className="col-span-2 flex justify-between items-center">
                     <div className="dropdown dropdown-bottom">
                         <div className="flex gap-2 items-center">

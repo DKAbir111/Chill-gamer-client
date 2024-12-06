@@ -1,20 +1,38 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 
 export default function AddReview() {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    const [review, setReview] = useState("");
+    const [reviewError, setReviewError] = useState("");
+
+    const handleReviewChange = (e) => {
+        const value = e.target.value;
+        if (value.length > 200) {
+            setReviewError("Review cannot exceed 200 characters.");
+        } else {
+            setReviewError("");
+            setReview(value);
+        }
+    };
+
     const handleReviewSubmit = (e) => {
         e.preventDefault();
+        if (review.length > 200) {
+            toast.error("Review is too long. Please limit it to 200 characters.");
+            return;
+        }
+
         const form = e.target;
         const cover = form.cover.value;
         const title = form.title.value;
         const year = form.year.value;
         const genre = form.genre.value;
         const rating = form.rating.value;
-        const review = form.review.value;
         const email = form.email.value;
         const name = form.name.value;
+
         const newReview = {
             cover,
             title,
@@ -23,23 +41,26 @@ export default function AddReview() {
             rating,
             review,
             email,
-            name
-        }
-        fetch('http://localhost:5001/games', {
-            method: 'POST',
+            name,
+        };
+
+        fetch("http://localhost:5001/games", {
+            method: "POST",
             headers: {
-                'content-type': 'application/json'
+                "content-type": "application/json",
             },
-            body: JSON.stringify(newReview)
+            body: JSON.stringify(newReview),
         })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 if (data.insertedId) {
-                    toast.success("Review added successfully")
+                    toast.success("Review added successfully");
                     form.reset();
+                    setReview("");
                 }
-            })
-    }
+            });
+    };
+
     return (
         <div className="bg-gray-900 py-20 p-2">
             <div className="card w-3/5 bg-gray-800 shrink-0 shadow-lg text-white mx-auto" data-aos="fade-left">
@@ -84,14 +105,11 @@ export default function AddReview() {
                     {/* Genre Dropdown */}
                     <div className="form-control">
                         <select
-
                             className="select input-bordered bg-gray-700 text-white"
                             name="genre"
                             required
                         >
-                            <option value="">
-                                Select Genre
-                            </option>
+                            <option value="">Select Genre</option>
                             <option value="Action">Action</option>
                             <option value="RPG">RPG</option>
                             <option value="Adventure">Adventure</option>
@@ -120,8 +138,11 @@ export default function AddReview() {
                             className="textarea input-bordered bg-gray-700 text-white"
                             rows="4"
                             name="review"
+                            value={review}
+                            onChange={handleReviewChange}
                             required
                         ></textarea>
+                        {reviewError && <small className="text-red-400">{reviewError}</small>}
                     </div>
 
                     {/* User Email */}
