@@ -7,7 +7,7 @@ const Trending = () => {
     const featuredData = data.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)).slice(0, 3)
     return (
         <div className="bg-gray-900 text-white py-16 px-4 md:px-16 dark:bg-black">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
                 {/* Left Section */}
                 <div>
                     <h4 className="text-pink-500 font-bold text-sm uppercase mb-2">
@@ -34,7 +34,7 @@ const Trending = () => {
                 {/* Right Section */}
                 <div className="flex justify-center">
                     <img
-                        src={game} // Replace with your 3D illustration
+                        src={game}
                         alt="Game Illustration"
                         className="w-3/4 md:w-full"
                     />

@@ -30,13 +30,13 @@ export default function SimpleSlider() {
                 ))}
             </Slider>
             <div className="absolute  text-white flex flex-col justify-center items-center w-full h-[550px] top-0 gap-5">
-                <h2 className="text-6xl w-1/2 text-center font-bold">Play with anyone, anywhere, on any device</h2>
-                <p className="w-1/2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                <h2 className="text-6xl md:w-10/12 lg:w-1/2 text-center font-bold">Play with anyone, anywhere, on any device</h2>
+                <p className="md:w-10/12 lg:w-1/2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                 <button className="btn  rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">EXPLORE THE GAME</button>
             </div>
             <div className="bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500">
-                <div className='container mx-auto flex-col md:flex-row flex justify-between items-center py-7 px-2'>
-                    <h2 className='md:w-1/2 text-3xl text-white'>Join Our Membership & Community</h2>
+                <div className='container mx-auto gap-5 flex-col md:flex-row flex justify-between items-center py-7 px-2'>
+                    <h2 className='text-center md:text-left md:w-1/2 text-3xl text-white'>Join Our Membership & Community</h2>
                     <button className="btn rounded-full text-pink-400 hover:bg-black hover:text-white border-none">JOIN MEMBERSHIP</button>
                 </div>
             </div>

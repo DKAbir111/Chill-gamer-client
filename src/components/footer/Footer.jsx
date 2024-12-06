@@ -59,7 +59,7 @@ export default function Footer() {
                                 <li className="hover:text-white dark:hover:text-indigo-400">Master Billiard</li>
                                 <li className="hover:text-white dark:hover:text-indigo-400">Maximum Speed</li>
                                 <li className="hover:text-white dark:hover:text-indigo-400">Rush and Rush</li>
-                                <li className="hover:text-white dark:hover:text-indigo-400">Let's Play Poker</li>
+                                <li className="hover:text-white dark:hover:text-indigo-400">Let&apos;s Play Poker</li>
                                 <li className="hover:text-white dark:hover:text-indigo-400">Farm Tycoon 2024</li>
                                 <li className="hover:text-white dark:hover:text-indigo-400">Monster Box</li>
                             </ul>
