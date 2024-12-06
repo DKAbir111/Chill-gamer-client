@@ -4,20 +4,27 @@ import boyGame from '../../assets/boy-game.png'
 import gameAnim from '../../assets/game-anim.gif'
 import 'aos/dist/aos.css';
 import { FcGoogle } from 'react-icons/fc';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
     const { googleSignIn, signIn } = useContext(AuthContext)
+    const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                console.log(result)
+                if (result?.user?.email) {
+                    toast.success('Logged in successfully')
+                    navigate('/')
+                }
             })
             .catch(error => {
                 console.log(error)
+                toast.error(error.message)
             });
     }
     const handleSignIn = (e) => {
@@ -51,11 +58,16 @@ export default function Login() {
                         </label>
                         <input type="email" placeholder="Email" name='email' className="input input-bordered bg-gray-700 text-white" required />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text text-white">Password</span>
                         </label>
-                        <input type="password" placeholder="Password" name='password' className="input input-bordered bg-gray-700 text-white" required />
+                        <input type={showPass ? "text" : "password"} placeholder="Password" name='password' className="input input-bordered bg-gray-700 text-white" required />
+                        <div className='absolute right-1 top-11'>
+                            <span onClick={() => setShowPass(!showPass)} className='btn btn-sm bg-gray-700 border-none hover:bg-gray-700 shadow-none text-white'>{
+                                showPass ? <FaEyeSlash /> : <FaEye />
+                            } </span>
+                        </div>
                         <label>
                             <Link className="text-xs text-white hover:underline">Forgot password?</Link>
                         </label>
