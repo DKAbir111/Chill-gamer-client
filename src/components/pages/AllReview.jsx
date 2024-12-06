@@ -4,10 +4,12 @@ import ReviewSlider from "../card/ReviewSlider"
 import { useState } from "react"
 import { FaSortAmountDown } from "react-icons/fa";
 import { IoFilterSharp } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 
 export default function AllReview() {
     const data = useLoaderData() || [];
     const [sortedData, setSortedData] = useState(data);
+    const [filteredBy, setFilteredBy] = useState("");
 
     const sortByRating = () => {
         const result = [...sortedData].sort((a, b) => parseInt(b.rating) - parseInt(a.rating));
@@ -22,6 +24,7 @@ export default function AllReview() {
     const handleFilter = (value) => {
         const result = data.filter(datum => datum.genre.toLowerCase() === value.toLowerCase());
         setSortedData(result);
+        setFilteredBy(value);
     };
 
     return (
@@ -42,7 +45,20 @@ export default function AllReview() {
             <div className="grid grid-cols-3 gap-5 container mx-auto">
                 <div className="col-span-2 flex justify-between items-center">
                     <div className="dropdown dropdown-bottom">
-                        <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700"><IoFilterSharp /> Filter by Genres </div>
+                        <div className="flex gap-2 items-center">
+                            <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700"><IoFilterSharp /> Filter by Genres</div>
+                            <span className="text-gray-400">
+                                {filteredBy && <div className="flex items-center gap-2 bg-gray-800 px-2 rounded-md">
+                                    <span>{filteredBy}</span>
+                                    <span className="hover:text-red-500 cursor-pointer" onClick={() => {
+                                        setSortedData(data);
+                                        setFilteredBy('');
+                                    }}><RxCross2 /></span>
+
+                                </div>}
+
+                            </span>
+                        </div>
                         <ul tabIndex={0} className="dropdown-content menu bg-gray-800 text-white rounded-box z-[1] w-52 p-2 shadow">
                             <li onClick={() => handleFilter('action')}><a className="font-semibold">Action</a></li>
                             <li onClick={() => handleFilter('rpg')}><a className="font-semibold">RPG</a></li>
