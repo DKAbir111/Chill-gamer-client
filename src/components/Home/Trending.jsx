@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import FeaturedCard from "../card/FeaturedCard";
 import game from '../../assets/boy-game-2.png';
+import planet from '../../assets/space.json'
+import Lottie from "lottie-react";
 
 const Trending = () => {
     const data = useLoaderData();
@@ -30,11 +32,12 @@ const Trending = () => {
                 </div>
 
                 {/* Right Section */}
-                <div className="flex justify-center">
+                <div className="flex justify-center relative">
+                    <Lottie animationData={planet} loop={true} className="w-700px opacity-50" />
                     <img
                         src={game}
                         alt="Game Illustration"
-                        className="w-3/4 md:w-full"
+                        className="w-3/4 absolute top-20 animate-flooting"
                     />
                 </div>
             </div>

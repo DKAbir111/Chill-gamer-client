@@ -63,7 +63,7 @@ export default function Register() {
         <section className={darkMode ? "dark" : ""}>
             <div className="flex flex-col lg:flex-row justify-center items-center bg-gray-900 py-10 lg:py-20 p-2 dark:bg-black">
                 <div data-aos="fade-right" className="relative flex justify-center">
-                    <img src={boyGame} alt="Boy playing game" className="w-3/5" />
+                    <img src={boyGame} alt="Boy playing game" className="w-3/5 md:w-full animate-flooting" />
                     <img src={gameAnim} alt="Game animation" className="absolute -z-10 opacity-70" />
                 </div>
                 <div

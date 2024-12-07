@@ -47,7 +47,7 @@ export default function Login() {
         <section className={darkMode ? "dark" : ""}>
             <div className="flex flex-col lg:flex-row  justify-center items-center bg-gray-900 md:py-20 pb-20 p-2 dark:bg-black">
                 <div data-aos="fade-right" className='relative flex justify-center'>
-                    <img src={boyGame} alt="" className='w-3/5' />
+                    <img src={boyGame} alt="" className='w-3/5 md:w-full animate-flooting' />
                     <img src={gameAnim} alt="" className='absolute -z-10 opacity-70' />
                 </div>
                 <div className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white dark:bg-gray-900" data-aos="fade-left">
