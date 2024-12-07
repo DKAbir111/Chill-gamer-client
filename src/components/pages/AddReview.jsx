@@ -65,19 +65,19 @@ export default function AddReview() {
         <div className={darkMode ? "dark" : ""}>
             <div className="bg-gray-900 dark:bg-gray-950 py-20 p-2">
                 <div
-                    className="card w-3/5 bg-gray-800 dark:bg-gray-900 shadow-lg text-white mx-auto"
+                    className="card md:w-10/12 lg:w-3/5 bg-gray-800 dark:bg-gray-900 shadow-lg text-white mx-auto"
                     data-aos="fade-left"
                 >
                     <form
-                        className="card-body grid grid-cols-2 gap-4"
+                        className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4"
                         onSubmit={handleReviewSubmit}
                     >
-                        <h2 className="text-xl font-semibold text-center col-span-2 dark:text-gray-400">
+                        <h2 className="text-xl font-semibold text-center sm:col-span-2 dark:text-gray-400">
                             Add New Game Review
                         </h2>
 
                         {/* Game Cover Image */}
-                        <div className="form-control col-span-2">
+                        <div className="form-control sm:col-span-2">
                             <input
                                 type="text"
                                 placeholder="Game Cover Image URL"
@@ -141,7 +141,7 @@ export default function AddReview() {
                         </div>
 
                         {/* Review Description */}
-                        <div className="form-control col-span-2">
+                        <div className="form-control sm:col-span-2">
                             <textarea
                                 placeholder="Write your detailed review here..."
                                 className="textarea input-bordered bg-gray-700 dark:bg-gray-800 text-white"
@@ -181,12 +181,13 @@ export default function AddReview() {
                         </div>
 
                         {/* Submit Button */}
-                        <div className="form-control mt-4 col-span-2">
+                        <div className="form-control mt-4 sm:col-span-2">
                             <button className="btn text-white bg-gradient-to-r to-indigo-500 via-purple-500 from-pink-500 border-none w-full">
                                 Submit Review
                             </button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
