@@ -49,7 +49,7 @@ export default function SimpleSlider() {
 
 
             <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                <div className="container mx-auto gap-5 flex-col md:flex-row flex justify-between items-center py-7 px-2 h-52 md:h-28">
+                <div className="container mx-auto gap-5 flex-col md:flex-row flex justify-between items-center py-7 px-2">
                     <h2 className="text-center md:text-left md:w-1/2 text-3xl text-white">
                         Join Gamer Community for |  <span className="font-bold text-gray-800">{text}</span>
                     </h2>

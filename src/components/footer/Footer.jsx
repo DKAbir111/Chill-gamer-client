@@ -16,18 +16,34 @@ export default function Footer() {
                         Get ready to play your heart out! Download now and unlock a world of gaming wonders.
                     </h2>
                     <div className="flex gap-4">
-                        <span className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400">
+                        <a
+                            href="https://play.google.com/store"
+                            target="_blank"
+                            className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400"
+                        >
                             <FaGooglePlay />
-                        </span>
-                        <span className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400">
+                        </a>
+                        <a
+                            href="https://www.playstation.com/en-us/"
+                            target="_blank"
+                            className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400"
+                        >
                             <FaPlaystation />
-                        </span>
-                        <span className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400">
+                        </a>
+                        <a
+                            href="https://www.gamepad.com"
+                            target="_blank"
+                            className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400"
+                        >
                             <FaGamepad />
-                        </span>
-                        <span className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400">
+                        </a>
+                        <a
+                            href="https://www.gameloft.com"
+                            target="_blank"
+                            className="btn btn-ghost btn-circle btn-lg text-2xl text-white hover:bg-white hover:text-pink-400 dark:hover:bg-gray-700 dark:hover:text-indigo-400"
+                        >
                             <SiGameloft />
-                        </span>
+                        </a>
                     </div>
                 </div>
 
@@ -41,14 +57,37 @@ export default function Footer() {
                                 <p className="text-3xl font-bold">ChilGam</p>
                             </span>
                             <p className="text-gray-400 dark:text-gray-500">
-                                Explore the vibrant world of game development with Gamequ – your
-                                ultimate destination for innovative games and industry insights.
+                                Explore the vibrant world of game development with ChilGam – your ultimate destination for innovative games and industry insights.
                             </p>
                             <div className="text-2xl flex gap-3 text-gray-400 dark:text-gray-500">
-                                <FaFacebook className="hover:text-white dark:hover:text-indigo-400" />
-                                <FaTwitter className="hover:text-white dark:hover:text-indigo-400" />
-                                <FaInstagram className="hover:text-white dark:hover:text-indigo-400" />
-                                <FaYoutube className="hover:text-white dark:hover:text-indigo-400" />
+                                <a
+                                    href="https://www.facebook.com/darulkararabir/"
+                                    target="_blank"
+                                    className="hover:text-white dark:hover:text-indigo-400"
+                                >
+                                    <FaFacebook />
+                                </a>
+                                <a
+                                    href="https://twitter.com/ChilGam"
+                                    target="_blank"
+                                    className="hover:text-white dark:hover:text-indigo-400"
+                                >
+                                    <FaTwitter />
+                                </a>
+                                <a
+                                    href="https://www.instagram.com/ChilGam"
+                                    target="_blank"
+                                    className="hover:text-white dark:hover:text-indigo-400"
+                                >
+                                    <FaInstagram />
+                                </a>
+                                <a
+                                    href="https://www.youtube.com/ChilGam"
+                                    target="_blank"
+                                    className="hover:text-white dark:hover:text-indigo-400"
+                                >
+                                    <FaYoutube />
+                                </a>
                             </div>
                         </div>
 
@@ -94,7 +133,7 @@ export default function Footer() {
                 <div className="bg-gray-900 py-7 dark:bg-gray-800">
                     <div className="container mx-auto text-sm flex flex-col md:flex-row justify-between items-center">
                         <p className="text-gray-500 dark:text-gray-400">
-                            &copy; 2024 Gamequ, All rights reserved. Powered by MoxCreative.
+                            &copy; 2025 ChilGam, All rights reserved. Powered by Darun Karas Abir.
                         </p>
                         <div className="flex space-x-4 mt-4 md:mt-0">
                             <a href="#" className="hover:text-indigo-400">Terms of Use</a>

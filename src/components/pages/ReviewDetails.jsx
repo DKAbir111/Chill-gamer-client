@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
+import { FaArrowLeft } from "react-icons/fa";
 
 const ReviewDetails = () => {
     const { user } = useContext(AuthContext)
@@ -40,13 +41,13 @@ const ReviewDetails = () => {
 
     }
     return (
-        <div className="bg-gradient-to-t relative from-gray-900 to-black h-[600px] flex flex-col justify-center items-center">
+        <div className="bg-gradient-to-t relative from-gray-900 to-black h-screen lg:h-[600px] flex flex-col justify-center items-center">
             {
-                gameData ? (<div className="container gap-5 mx-auto p-5 border border-gray-700 rounded-lg flex justify-between relative  bg-gray-800 bg-opacity-30">
+                gameData ? (<div className="w-11/12 md:w-10/12 gap-5 mx-auto p-5 border border-gray-700 rounded-lg flex flex-col lg:flex-row justify-between relative  bg-gray-800 bg-opacity-30">
                     <div className="absolute -top-16">
-                        <button onClick={() => navigate(-1)} className="btn  rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white">← Go Back</button>
+                        <button onClick={() => navigate(-1)} className="btn  rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white"><FaArrowLeft />Go Back</button>
                     </div>
-                    <div className="flex flex-col gap-3 w-1/2">
+                    <div className="flex flex-col gap-3 lg:w-1/2">
                         <div className="flex-1 space-y-2">
                             <p className="text-lg font-thin text-pink-400">Review Details</p>
                             <h2 className="text-white text-4xl">{gameData.title}</h2>
@@ -67,11 +68,11 @@ const ReviewDetails = () => {
                             <p className="text-pink-400 text-sm">{gameData.email}</p>
                         </div>
                     </div>
-                    <div className="w-1/2 relative">
-                        <img src={gameData.cover} alt={gameData.title} className="object-cover h-full w-full rounded-lg" />
-                        <div className="h-44 w-44 bg-gradient-to-r flex flex-col justify-center items-center  to-indigo-500 via-purple-500 from-pink-500 
-                rounded-full absolute -top-20 -right-20">
-                            <h2 className="text-white text-5xl font-bold text-center">{gameData.rating}+</h2>
+                    <div className="lg:w-1/2 relative order-first lg:order-last">
+                        <img src={gameData.cover} alt={gameData.title} className="object-cover min-h-44 md:h-full w-full rounded-lg" />
+                        <div className="h-32 w-32 md:h-40 md:w-40 lg:h-44 lg:w-44 bg-gradient-to-r flex flex-col justify-center items-center  to-indigo-500 via-purple-500 from-pink-500 
+                rounded-full absolute -top-20 -right-6 md:-right-20">
+                            <h2 className="text-white text-3xl md:text-5xl font-bold text-center">{gameData.rating}+</h2>
                             <p className="text-lg font-bold text-white">Rating</p>
 
                         </div>
@@ -83,7 +84,7 @@ const ReviewDetails = () => {
                     <button
                         onClick={() => navigate(-1)}
                         className="btn rounded-full px-4 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold border-none">
-                        ← Go Back
+                        <FaArrowLeft />Go Back
                     </button>
                 </div>
 

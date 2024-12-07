@@ -23,10 +23,34 @@ export default function TopRatedCard({ datum }) {
                                 <Link to={`/review/${datum._id}`} className="text-white btn bg-gradient-to-r border-none from-indigo-500 via-purple-500 to-pink-500 font-medium btn-sm rounded-full">Explore Details</Link>
                             </div>
                             <div className='flex gap-2  text-white'>
-                                <span className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'> <FaGooglePlay /></span>
-                                <span className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'> <FaPlaystation /></span>
-                                <span className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'> <FaGamepad /></span>
-                                <span className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'> <SiGameloft /></span>
+                                <a href='https://play.google.com/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'>
+                                    <FaGooglePlay />
+                                </a>
+
+                                <a href='https://www.playstation.com/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'>
+                                    <FaPlaystation />
+                                </a>
+
+                                <a href='https://www.xbox.com/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'>
+                                    <FaGamepad />
+                                </a>
+
+                                <a href='https://www.gameloft.com/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='btn btn-ghost btn-circle text-xl hover:bg-white hover:text-pink-400'>
+                                    <SiGameloft />
+                                </a>
+
                             </div>
                         </div>
 
