@@ -8,7 +8,7 @@ export default function GameWatchList() {
     const { darkMode } = useContext(AuthContext)
     return (
         <section className={darkMode ? "dark" : ""}>
-            <div className="bg-gray-900 py-20 dark:bg-black">
+            <div className="bg-gray-900 py-20 dark:bg-black p-3">
                 <div className="container mx-auto text-white">
                     {data.length > 0 ? (
                         <div className="overflow-x-auto">

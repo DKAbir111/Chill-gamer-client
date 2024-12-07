@@ -65,12 +65,17 @@ export default function UpdateReview() {
     return (
         <section className={darkMode ? "dark" : ""}>
             <div className="bg-gray-900 py-20 p-2 dark:bg-black">
-                <div className="card w-3/5 bg-gray-800 shrink-0 shadow-lg text-white mx-auto dark:bg-gray-900" data-aos="fade-left">
-                    <form className="card-body grid grid-cols-2 gap-4" onSubmit={handleReviewUpdate}>
-                        <h2 className="text-xl font-semibold text-center col-span-2 dark:text-gray-400">Update Game Review</h2>
+                <div className="card md:w-10/12 lg:w-3/5 bg-gray-800 shrink-0 shadow-lg text-white mx-auto dark:bg-gray-900" data-aos="fade-left">
+                    <form
+                        className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4"
+                        onSubmit={handleReviewUpdate}
+                    >
+                        <h2 className="text-xl font-semibold text-center col-span-1 sm:col-span-2 dark:text-gray-400">
+                            Update Game Review
+                        </h2>
 
                         {/* Game Cover Image */}
-                        <div className="form-control col-span-2">
+                        <div className="form-control col-span-1 sm:col-span-2">
                             <input
                                 type="text"
                                 placeholder="Game Cover Image URL"
@@ -139,7 +144,7 @@ export default function UpdateReview() {
                         </div>
 
                         {/* Review Description */}
-                        <div className="form-control col-span-2">
+                        <div className="form-control col-span-1 sm:col-span-2">
                             <textarea
                                 placeholder="Write your detailed review here..."
                                 className="textarea input-bordered bg-gray-700 text-white dark:bg-gray-800"
@@ -177,12 +182,13 @@ export default function UpdateReview() {
                         </div>
 
                         {/* Submit Button */}
-                        <div className="form-control mt-4 col-span-2">
+                        <div className="form-control mt-4 col-span-1 sm:col-span-2">
                             <button className="btn text-white bg-gradient-to-r to-indigo-500 via-purple-500 from-pink-500 border-none w-full">
                                 Update Review
                             </button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </section>

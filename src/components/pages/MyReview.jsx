@@ -50,7 +50,7 @@ export default function MyReview() {
 
     return (
         <section className={darkMode ? "dark" : ""}>
-            <div className="bg-gray-900 py-20 dark:bg-black">
+            <div className="bg-gray-900 py-20 dark:bg-black p-3">
                 <div className="container mx-auto text-white">
                     <p className="text-xl font-semibold mb-4">
                         Total Reviews: {filterData?.length || 0}
