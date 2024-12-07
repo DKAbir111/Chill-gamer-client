@@ -45,7 +45,7 @@ export default function UpdateReview() {
             review,
         };
 
-        fetch(`http://localhost:5001/update/${data._id}`, {
+        fetch(`https://chill-gamer-server-sandy.vercel.app/update/${data._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

@@ -45,7 +45,7 @@ export default function AddReview() {
             name,
         };
 
-        fetch("http://localhost:5001/games", {
+        fetch("https://chill-gamer-server-sandy.vercel.app/games", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

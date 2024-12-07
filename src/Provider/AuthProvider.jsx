@@ -12,7 +12,7 @@ export default function AuthProvider({ children }) {
 
     //inser user info in database
     const DbUserInfo = (user) => {
-        fetch('http://localhost:5001/users', {
+        fetch('https://chill-gamer-server-sandy.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

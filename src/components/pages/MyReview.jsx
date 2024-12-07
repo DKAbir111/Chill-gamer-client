@@ -20,7 +20,7 @@ export default function MyReview() {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5001/review/${id}`, {
+                fetch(`https://chill-gamer-server-sandy.vercel.app/review/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

@@ -21,7 +21,7 @@ const ReviewDetails = () => {
         }
         delete watchList._id;
         try {
-            await fetch('http://localhost:5001/watchlist', {
+            await fetch('https://chill-gamer-server-sandy.vercel.app/watchlist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

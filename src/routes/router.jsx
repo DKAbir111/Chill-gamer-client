@@ -21,17 +21,17 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <HomeLayout />,
-                loader: async () => await fetch('http://localhost:5001/reviews')
+                loader: async () => await fetch('https://chill-gamer-server-sandy.vercel.app/reviews')
             },
             {
                 path: "/allreview",
                 element: <AllReview />,
-                loader: async () => await fetch('http://localhost:5001/reviews')
+                loader: async () => await fetch('https://chill-gamer-server-sandy.vercel.app/reviews')
             },
             {
                 path: "/game-watch-list/:email",
                 element: <PrivateRoute><GameWatchList /></PrivateRoute>,
-                loader: async ({ params }) => await fetch(`http://localhost:5001/watchlist/${params.email}`)
+                loader: async ({ params }) => await fetch(`https://chill-gamer-server-sandy.vercel.app/watchlist/${params.email}`)
             },
             {
                 path: "/addreview",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: "/myreview/:email",
                 element: <PrivateRoute><MyReview /></PrivateRoute>,
-                loader: async ({ params }) => await fetch(`http://localhost:5001/reviews/${params.email}`)
+                loader: async ({ params }) => await fetch(`https://chill-gamer-server-sandy.vercel.app/reviews/${params.email}`)
             },
             {
                 path: "/login",
@@ -53,12 +53,12 @@ const router = createBrowserRouter([
             {
                 path: "/review/:id",
                 element: <PrivateRoute><ReviewDetails /></PrivateRoute>,
-                loader: async ({ params }) => await fetch(`http://localhost:5001/review/${params.id}`)
+                loader: async ({ params }) => await fetch(`https://chill-gamer-server-sandy.vercel.app/review/${params.id}`)
             },
             {
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateReview /></PrivateRoute>,
-                loader: async ({ params }) => await fetch(`http://localhost:5001/review/${params.id}`)
+                loader: async ({ params }) => await fetch(`https://chill-gamer-server-sandy.vercel.app/review/${params.id}`)
             }
         ]
     },
