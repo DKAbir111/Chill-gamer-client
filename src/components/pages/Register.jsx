@@ -1,17 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
 import boyGame from '../../assets/boy-game.png';
 import gameAnim from '../../assets/game-anim.gif';
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import auth from '../../Firebase/firebase.init';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
 import Title from '../title/Title';
+import { MdFileUpload } from "react-icons/md";
 
 export default function Register() {
     const { createUser, DbUserInfo, darkMode } = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);
+    const [photo, setPhoto] = useState('')
     const navigate = useNavigate()
     const validatePassword = (password) => {
         const hasUpperCase = /[A-Z]/.test(password);
@@ -59,6 +61,28 @@ export default function Register() {
                 toast.error(error.message);
             });
     };
+    const ImageRef = useRef(null)
+    const handlePhotoUpload = (e) => {
+        const photo = e.target.files[0];
+        if (!photo) return;
+        const formData = new FormData();
+        formData.append('image', photo)
+        try {
+            fetch('https://api.imgbb.com/1/upload?key=5c73e82c6c39c531a41a2361f2681168', {
+                method: 'POST',
+                body: formData
+
+            }).then(res => res.json())
+                .then(data => {
+                    setPhoto(data.data.
+                        display_url)
+                })
+
+        } catch (err) {
+            console.error(err);
+            return;
+        }
+    }
 
     return (
         <section className={darkMode ? "dark" : ""}>
@@ -98,7 +122,7 @@ export default function Register() {
                                 required
                             />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text text-white">Photo</span>
                             </label>
@@ -106,9 +130,12 @@ export default function Register() {
                                 type="text"
                                 placeholder="Photo URL"
                                 name="photo"
+                                defaultValue={photo}
                                 className="input input-bordered bg-gray-700 text-white"
                                 required
                             />
+                            <input type="file" className='hidden' name='file' ref={ImageRef} onChange={handlePhotoUpload} />
+                            <span onClick={() => ImageRef.current.click()} className='btn btn-sm absolute bg-gray-700 text-white border-none right-1 top-11'><MdFileUpload /></span>
                         </div>
                         <div className="form-control relative">
                             <label className="label">
