@@ -45,11 +45,11 @@ export default function AllReview() {
                         clipRule="evenodd" />
                 </svg>
             </label> */}
-                <div className="grid grid-cols-3 gap-5 container mx-auto pt-10">
+                <div className="grid lg:grid-cols-3 gap-5 container mx-auto pt-10 p-3">
                     <div className="col-span-2 flex justify-between items-center">
                         <div className="dropdown dropdown-bottom">
                             <div className="flex gap-2 items-center">
-                                <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700"><IoFilterSharp /> Filter by Genres</div>
+                                <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700"><IoFilterSharp /> Filter <span className="hidden md:block">by Genres</span> </div>
                                 <span className="text-gray-400">
                                     {filteredBy && <div className="flex items-center gap-2 bg-gray-800 px-2 rounded-md">
                                         <span>{filteredBy}</span>
@@ -70,7 +70,7 @@ export default function AllReview() {
                                 <li onClick={() => handleFilter('sports')}><a className="font-semibold">Sports</a></li>
                             </ul>
                         </div>
-                        <h3 className="text-white text-xl font-semibold">Total Review: {sortedData.length}</h3>
+                        <h3 className="text-white text-xl font-semibold hidden md:blobk">Total Review:{sortedData.length}</h3>
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn m-1 bg-gray-800 border-none text-white hover:bg-gray-700"><FaSortAmountDown /> Sort</div>
                             <ul tabIndex={0} className="dropdown-content menu bg-gray-800 rounded-box z-[1] w-52 p-2 shadow text-white">

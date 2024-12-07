@@ -10,15 +10,18 @@ function ReviewSlider() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+
     };
     return (
-        <div className="slider-container">
+
+        <div className="slider-container ml-20 overflow-hidden">
             <Slider {...settings}>
                 <img src={warrior} alt="" />
                 <img src={reveger} alt="" />
                 <img src={inventor} alt="" />
             </Slider>
         </div>
+
     );
 }
 

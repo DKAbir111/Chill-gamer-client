@@ -9,7 +9,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
 
 export default function Register() {
-    const { createUser, DbUserInfo } = useContext(AuthContext);
+    const { createUser, DbUserInfo, darkMode } = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate()
     const validatePassword = (password) => {
@@ -60,88 +60,90 @@ export default function Register() {
     };
 
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center bg-gray-900 py-20 p-2">
-            <div data-aos="fade-right" className="relative flex justify-center">
-                <img src={boyGame} alt="Boy playing game" className="w-3/5" />
-                <img src={gameAnim} alt="Game animation" className="absolute -z-10 opacity-70" />
-            </div>
-            <div
-                className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white"
-                data-aos="fade-left"
-            >
-                <form className="card-body" onSubmit={handleRegister}>
-                    <h2 className="text-xl font-semibold text-center">Register</h2>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Name</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            name="name"
-                            className="input input-bordered bg-gray-700 text-white"
-                            required
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Email</span>
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            name="email"
-                            className="input input-bordered bg-gray-700 text-white"
-                            required
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-white">Photo</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Photo URL"
-                            name="photo"
-                            className="input input-bordered bg-gray-700 text-white"
-                            required
-                        />
-                    </div>
-                    <div className="form-control relative">
-                        <label className="label">
-                            <span className="label-text text-white">Password</span>
-                        </label>
-                        <input
-                            type={showPass ? "text" : "password"}
-                            placeholder="Password"
-                            name="password"
-                            className="input input-bordered bg-gray-700 text-white"
-                            required
-                        />
-                        <div className="absolute right-1 top-11">
-                            <span
-                                onClick={() => setShowPass(!showPass)}
-                                className="btn btn-sm bg-gray-700 border-none hover:bg-gray-700 shadow-none text-white"
-                            >
-                                {showPass ? <FaEyeSlash /> : <FaEye />}
-                            </span>
+        <section className={darkMode ? "dark" : ""}>
+            <div className="flex flex-col lg:flex-row justify-center items-center bg-gray-900 py-10 lg:py-20 p-2 dark:bg-black">
+                <div data-aos="fade-right" className="relative flex justify-center">
+                    <img src={boyGame} alt="Boy playing game" className="w-3/5" />
+                    <img src={gameAnim} alt="Game animation" className="absolute -z-10 opacity-70" />
+                </div>
+                <div
+                    className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white dark:bg-gray-900"
+                    data-aos="fade-left"
+                >
+                    <form className="card-body" onSubmit={handleRegister}>
+                        <h2 className="text-xl font-semibold text-center">Register</h2>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                name="name"
+                                className="input input-bordered bg-gray-700 text-white"
+                                required
+                            />
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                name="email"
+                                className="input input-bordered bg-gray-700 text-white"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white">Photo</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Photo URL"
+                                name="photo"
+                                className="input input-bordered bg-gray-700 text-white"
+                                required
+                            />
+                        </div>
+                        <div className="form-control relative">
+                            <label className="label">
+                                <span className="label-text text-white">Password</span>
+                            </label>
+                            <input
+                                type={showPass ? "text" : "password"}
+                                placeholder="Password"
+                                name="password"
+                                className="input input-bordered bg-gray-700 text-white"
+                                required
+                            />
+                            <div className="absolute right-1 top-11">
+                                <span
+                                    onClick={() => setShowPass(!showPass)}
+                                    className="btn btn-sm bg-gray-700 border-none hover:bg-gray-700 shadow-none text-white"
+                                >
+                                    {showPass ? <FaEyeSlash /> : <FaEye />}
+                                </span>
+                            </div>
+                        </div>
+                        <div className="form-control mt-4">
+                            <button className="btn text-white bg-gradient-to-r to-indigo-500 via-purple-500 from-pink-500 border-none">
+                                Register
+                            </button>
+                        </div>
+                    </form>
+                    <div className="flex justify-center pb-5">
+                        <small className="text-center">
+                            Already have an account?
+                            <Link to="/login" className="text-pink-500 hover:underline ml-1">
+                                Login
+                            </Link>
+                        </small>
                     </div>
-                    <div className="form-control mt-4">
-                        <button className="btn text-white bg-gradient-to-r to-indigo-500 via-purple-500 from-pink-500 border-none">
-                            Register
-                        </button>
-                    </div>
-                </form>
-                <div className="flex justify-center pb-5">
-                    <small className="text-center">
-                        Already have an account?
-                        <Link to="/login" className="text-pink-500 hover:underline ml-1">
-                            Login
-                        </Link>
-                    </small>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
