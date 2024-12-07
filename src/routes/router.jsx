@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allreview",
-                element: <PrivateRoute><AllReview /></PrivateRoute>,
+                element: <AllReview />,
                 loader: async () => await fetch('http://localhost:5001/reviews')
             },
             {
