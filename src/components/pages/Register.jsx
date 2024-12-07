@@ -7,6 +7,7 @@ import { updateProfile } from 'firebase/auth';
 import auth from '../../Firebase/firebase.init';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
+import Title from '../title/Title';
 
 export default function Register() {
     const { createUser, DbUserInfo, darkMode } = useContext(AuthContext);
@@ -61,6 +62,7 @@ export default function Register() {
 
     return (
         <section className={darkMode ? "dark" : ""}>
+            <Title title="Register|ChillGam" />
             <div className="flex flex-col lg:flex-row justify-center items-center bg-gray-900 py-10 lg:py-20 p-2 dark:bg-black">
                 <div data-aos="fade-right" className="relative flex justify-center">
                     <img src={boyGame} alt="Boy playing game" className="w-3/5 md:w-full animate-flooting" />

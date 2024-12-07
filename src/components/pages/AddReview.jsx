@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
+import Title from "../title/Title";
 
 export default function AddReview() {
     const { user, darkMode } = useContext(AuthContext); // Access darkMode from context
@@ -63,6 +64,7 @@ export default function AddReview() {
 
     return (
         <div className={darkMode ? "dark" : ""}>
+            <Title title="Add Review|ChillGam" />
             <div className="bg-gray-900 dark:bg-gray-950 py-20 p-2">
                 <div
                     className="card md:w-10/12 lg:w-3/5 bg-gray-800 dark:bg-gray-900 shadow-lg text-white mx-auto"

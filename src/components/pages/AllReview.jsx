@@ -6,6 +6,7 @@ import { FaSortAmountDown } from "react-icons/fa";
 import { IoFilterSharp } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { AuthContext } from "../../Context/AuthContext";
+import Title from "../title/Title";
 
 export default function AllReview() {
     const data = useLoaderData() || [];
@@ -31,6 +32,7 @@ export default function AllReview() {
 
     return (
         <div className={darkMode ? "dark" : ""}>
+            <Title title="All Review|ChillGam" />
             <div className="bg-black pb-20 dark:bg-gray-900">
                 {/* <label className="input input-bordered flex items-center gap-2 w-1/2 mx-auto mb-10 bg-gray-700 text-white">
                 <input type="text" className="grow" placeholder="Search" />

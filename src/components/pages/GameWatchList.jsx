@@ -2,12 +2,14 @@ import { useLoaderData } from "react-router-dom";
 import WatchListCard from "../card/WatchListCard";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import Title from "../title/Title";
 
 export default function GameWatchList() {
     const data = useLoaderData() || []; // Fallback to an empty array if data is undefined
     const { darkMode } = useContext(AuthContext)
     return (
         <section className={darkMode ? "dark" : ""}>
+            <Title title="Watch List|ChillGam" />
             <div className="bg-gray-900 py-20 dark:bg-black p-3">
                 <div className="container mx-auto text-white">
                     {data.length > 0 ? (

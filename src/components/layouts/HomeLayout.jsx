@@ -4,12 +4,14 @@ import HighestRated from "../Home/HighestRated";
 import SimpleSlider from "../Home/SimpleSlider";
 import Trending from "../Home/Trending";
 import { AuthContext } from "../../Context/AuthContext";
+import Title from "../title/Title";
 
 
 export default function HomeLayout() {
     const { darkMode } = useContext(AuthContext)
     return (
         <div className={darkMode ? "dark" : ""}>
+            <Title title="Home|ChillGam" />
             <SimpleSlider />
             <HighestRated />
             <Adventure />

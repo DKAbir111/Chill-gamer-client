@@ -9,6 +9,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import Title from '../title/Title';
 
 export default function Login() {
     const { googleSignIn, signIn, darkMode } = useContext(AuthContext)
@@ -47,6 +48,7 @@ export default function Login() {
     }
     return (
         <section className={darkMode ? "dark" : ""}>
+            <Title title="Login|ChillGam" />
             <div className="flex flex-col lg:flex-row  justify-center items-center bg-gray-900 md:py-20 pb-20 p-2 dark:bg-black">
                 <div data-aos="fade-right" className='relative flex justify-center'>
                     <img src={boyGame} alt="" className='w-3/5 md:w-full animate-flooting' />

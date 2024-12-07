@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Title from "../title/Title";
 
 export default function UpdateReview() {
     const { user, darkMode } = useContext(AuthContext);
@@ -64,6 +65,7 @@ export default function UpdateReview() {
 
     return (
         <section className={darkMode ? "dark" : ""}>
+            <Title title="Update Review|ChillGam" />
             <div className="bg-gray-900 py-20 p-2 dark:bg-black">
                 <div className="card md:w-10/12 lg:w-3/5 bg-gray-800 shrink-0 shadow-lg text-white mx-auto dark:bg-gray-900" data-aos="fade-left">
                     <form

@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import MyReviewCard from "../card/MyReviewCard";
 import { AuthContext } from "../../Context/AuthContext";
+import Title from "../title/Title";
 
 export default function MyReview() {
     const data = useLoaderData() || [];
@@ -50,6 +51,7 @@ export default function MyReview() {
 
     return (
         <section className={darkMode ? "dark" : ""}>
+            <Title title="My Review|ChillGam" />
             <div className="bg-gray-900 py-20 dark:bg-black p-3">
                 <div className="container mx-auto text-white">
                     <p className="text-xl font-semibold mb-4">

@@ -3,6 +3,7 @@ import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import { FaArrowLeft } from "react-icons/fa";
+import Title from "../title/Title";
 
 const ReviewDetails = () => {
     const { user } = useContext(AuthContext)
@@ -42,6 +43,7 @@ const ReviewDetails = () => {
     }
     return (
         <div className="bg-gradient-to-t relative from-gray-900 to-black h-screen lg:h-[600px] flex flex-col justify-center items-center">
+            <Title title="Review Details|ChillGam" />
             {
                 gameData ? (<div className="w-11/12 md:w-10/12 gap-5 mx-auto p-5 border border-gray-700 rounded-lg flex flex-col lg:flex-row justify-between relative  bg-gray-800 bg-opacity-30">
                     <div className="absolute -top-16">
