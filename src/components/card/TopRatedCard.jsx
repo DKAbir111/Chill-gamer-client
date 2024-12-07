@@ -8,13 +8,13 @@ export default function TopRatedCard({ datum }) {
         <div>
             {
                 datum ?
-                    <div className="h-[490px] card bg-gradient-to-b from-gray-900 to-gray-800 shadow-xl backdrop-blur-lg bg-opacity-50 border border-gray-600 hover:border-pink-400 dark:from-gray-800 dark:to-black dark:bg-opacity-70 dark:border-gray-500 dark:hover:border-blue-400">
+                    <div className="h-[490px] card bg-gradient-to-b from-gray-900 to-gray-800 shadow-xl backdrop-blur-lg bg-opacity-50 border border-gray-600 hover:border-pink-400 dark:from-gray-800 dark:to-black dark:bg-opacity-70 dark:border-gray-500 dark:hover:border-blue-400" data-aos="zoom-in">
 
                         <figure className="px-4 pt-4">
                             <img
                                 src={datum.cover}
                                 alt={datum.title}
-                                className="rounded-xl h-60 object-cover" />
+                                className="rounded-xl h-60 object-cover overflow-hidden" />
                         </figure>
                         <div className="flex flex-col  gap-3 items-center text-center text-white p-5">
                             <h2 className="text-2xl text-pink-400">{datum.title}</h2>

@@ -36,20 +36,20 @@ export default function SimpleSlider() {
                 ))}
             </Slider>
             <div className="absolute text-white flex flex-col justify-center items-center w-full h-[550px] top-0 gap-5">
-                <h2 className="text-6xl md:w-10/12 lg:w-1/2 text-center font-bold">
+                <h2 className="text-6xl md:w-10/12 lg:w-1/2 text-center font-bold" data-aos="fade-right">
                     Dive Into Gaming Bliss
                 </h2>
-                <p className="md:w-10/12 lg:w-1/2 text-center">
+                <p className="md:w-10/12 lg:w-1/2 text-center" data-aos="fade-up">
                     Explore the world of gaming through detailed reviews, community insights, and curated recommendations. Your next favorite game awaits!
                 </p>
-                <Link to={'/allreview'} className="btn rounded-full h-9 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-none text-white">
+                <Link to={'/allreview'} className="btn rounded-full h-9 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-none text-white" data-aos="fade-left">
                     EXPLORE REVIEWS
                 </Link>
             </div>
 
 
             <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                <div className="container mx-auto gap-5 flex-col md:flex-row flex justify-between items-center py-7 px-2">
+                <div className="container mx-auto gap-5 flex-col md:flex-row flex justify-between items-center py-7 px-2 h-52 md:h-28">
                     <h2 className="text-center md:text-left md:w-1/2 text-3xl text-white">
                         Join Gamer Community for |  <span className="font-bold text-gray-800">{text}</span>
                     </h2>

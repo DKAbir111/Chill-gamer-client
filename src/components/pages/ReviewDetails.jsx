@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import { FaArrowLeft } from "react-icons/fa";
@@ -9,7 +9,7 @@ const ReviewDetails = () => {
 
     const gameData = useLoaderData()
     const navigate = useNavigate()
-
+    const location = useLocation()
     const handleWatchList = async () => {
 
         const watchList = {
@@ -45,7 +45,7 @@ const ReviewDetails = () => {
             {
                 gameData ? (<div className="w-11/12 md:w-10/12 gap-5 mx-auto p-5 border border-gray-700 rounded-lg flex flex-col lg:flex-row justify-between relative  bg-gray-800 bg-opacity-30">
                     <div className="absolute -top-16">
-                        <button onClick={() => navigate(-1)} className="btn  rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white"><FaArrowLeft />Go Back</button>
+                        <button onClick={() => { navigate(location.state ? "/" : -1) }} className="btn  rounded-full h-9 bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 border-none text-white"><FaArrowLeft />Go Back</button>
                     </div>
                     <div className="flex flex-col gap-3 lg:w-1/2">
                         <div className="flex-1 space-y-2">

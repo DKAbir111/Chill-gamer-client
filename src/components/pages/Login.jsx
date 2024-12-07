@@ -1,5 +1,5 @@
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import boyGame from '../../assets/boy-game.png'
 import gameAnim from '../../assets/game-anim.gif'
 import 'aos/dist/aos.css';
@@ -12,6 +12,8 @@ import { FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
     const { googleSignIn, signIn, darkMode } = useContext(AuthContext)
+    const location = useLocation()
+    console.log(location)
     const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
     const handleGoogleSignIn = () => {
@@ -19,7 +21,7 @@ export default function Login() {
             .then(result => {
                 if (result?.user?.email) {
                     toast.success('Logged in successfully')
-                    navigate('/')
+                    navigate(location?.state || "/", { state: location.pathname });
                 }
             })
             .catch(error => {

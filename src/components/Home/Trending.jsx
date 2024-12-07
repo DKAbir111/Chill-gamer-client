@@ -11,7 +11,7 @@ const Trending = () => {
         <div className="bg-gray-900 text-white py-16 px-4 md:px-16 dark:bg-black">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
                 {/* Left Section */}
-                <div>
+                <div data-aos="fade-right">
                     <h4 className="text-pink-500 font-bold text-sm uppercase mb-2">
                         Trending Games
                     </h4>
@@ -32,7 +32,7 @@ const Trending = () => {
                 </div>
 
                 {/* Right Section */}
-                <div className="flex justify-center relative">
+                <div className="flex justify-center relative" data-aos="fade-up">
                     <Lottie animationData={planet} loop={true} className="w-700px opacity-50" />
                     <img
                         src={game}
