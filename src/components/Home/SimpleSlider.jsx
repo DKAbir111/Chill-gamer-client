@@ -5,8 +5,13 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
+import { useTypewriter } from "react-simple-typewriter";
 
 export default function SimpleSlider() {
+    const [text] = useTypewriter({
+        words: ['Latest News', 'Exclusive Review', 'Game Updates', 'Game Discounts'],
+        loop: true,
+    })
     const settings = {
         dots: false,
         infinite: true,
@@ -41,10 +46,12 @@ export default function SimpleSlider() {
                     EXPLORE REVIEWS
                 </Link>
             </div>
+
+
             <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                <div className="container mx-auto gap-5 flex-col md:flex-row flex justify-between items-center py-7 px-2">
+                <div className="container mx-auto gap-5 flex-col md:flex-row flex justify-between items-center py-7 px-2 h-52 md:h-28">
                     <h2 className="text-center md:text-left md:w-1/2 text-3xl text-white">
-                        Become Part of the Chill Gamer Community
+                        Join Gamer Community for |  <span className="font-bold text-gray-800">{text}</span>
                     </h2>
                     <button onClick={() => {
                         user?.email ? toast.success("You're already a member! 🎉") : navigate('login')
