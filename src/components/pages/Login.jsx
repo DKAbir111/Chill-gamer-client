@@ -14,7 +14,6 @@ import Title from '../title/Title';
 export default function Login() {
     const { googleSignIn, signIn, darkMode } = useContext(AuthContext)
     const location = useLocation()
-    console.log(location)
     const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
     const handleGoogleSignIn = () => {
@@ -26,7 +25,6 @@ export default function Login() {
                 }
             })
             .catch(error => {
-                console.log(error)
                 toast.error(error.message)
             });
     }
@@ -54,7 +52,7 @@ export default function Login() {
                     <img src={boyGame} alt="" className='w-3/5 md:w-full animate-flooting' />
                     <img src={gameAnim} alt="" className='absolute -z-10 opacity-70' />
                 </div>
-                <div className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white dark:bg-gray-900" data-aos="fade-left">
+                <div className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white dark:bg-gray-900" data-aos="fade-up">
                     <form className="card-body " onSubmit={handleSignIn}>
                         <h2 className='text-xl font-semibold text-center'>Login</h2>
                         <div className="form-control">

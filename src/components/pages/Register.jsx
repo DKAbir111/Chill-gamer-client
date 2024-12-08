@@ -94,7 +94,7 @@ export default function Register() {
                 </div>
                 <div
                     className="card w-full bg-gray-800 max-w-md shrink-0 shadow-lg text-white dark:bg-gray-900"
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                 >
                     <form className="card-body" onSubmit={handleRegister}>
                         <h2 className="text-xl font-semibold text-center">Register</h2>
