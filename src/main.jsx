@@ -9,6 +9,6 @@ createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <StrictMode>
       <RouterProvider router={router} />
-    </StrictMode>,
+    </StrictMode>
   </AuthProvider>
 )

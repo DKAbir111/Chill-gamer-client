@@ -39,9 +39,9 @@ export default function UpdateReview() {
         const updatedReview = {
             cover,
             title,
-            year,
+            year: Number(year),
             genre,
-            rating,
+            rating: Number(rating),
             review,
         };
 
