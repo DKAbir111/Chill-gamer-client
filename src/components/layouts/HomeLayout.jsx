@@ -7,6 +7,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import Title from "../title/Title";
 import WhoWeAre from "../Home/WhoWeAre";
 import News from "../Home/News";
+import ContactForm from "../contact/ContactForm";
 
 
 export default function HomeLayout() {
@@ -20,6 +21,7 @@ export default function HomeLayout() {
             <Trending />
             <WhoWeAre />
             <News />
+            <ContactForm />
         </div>
     )
 }
