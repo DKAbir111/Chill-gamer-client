@@ -5,6 +5,7 @@ import SimpleSlider from "../Home/SimpleSlider";
 import Trending from "../Home/Trending";
 import { AuthContext } from "../../Context/AuthContext";
 import Title from "../title/Title";
+import WhoWeAre from "../Home/WhoWeAre";
 
 
 export default function HomeLayout() {
@@ -16,6 +17,7 @@ export default function HomeLayout() {
             <HighestRated />
             <Adventure />
             <Trending />
+            <WhoWeAre />
         </div>
     )
 }
