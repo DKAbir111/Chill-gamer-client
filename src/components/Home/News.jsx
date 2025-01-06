@@ -1,12 +1,10 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthContext"; // Assuming you're using AuthContext for darkMode
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 
 export default function News() {
     const [articles, setArticles] = useState([]); // Initialize as an empty array
-    const { darkMode } = useContext(AuthContext); // Use context to determine if dark mode is enabled
 
     useEffect(() => {
         AOS.init({ duration: 1000 }); // Initialize AOS with default duration
@@ -20,7 +18,7 @@ export default function News() {
     }, []);
 
     return (
-        <div className={`bg-gray-900 py-12 px-5 ${darkMode ? "dark" : ""}`}>
+        <div className="bg-gradient-to-b from-gray-900 to-gray-950 px-5">
             <div className="container mx-auto text-center">
                 <h2
                     className="text-white text-3xl font-bold mb-8"
@@ -37,8 +35,7 @@ export default function News() {
                         <Link
                             to={`/blog/${article.id}`} // Use dynamic routing for unique blog pages
                             key={article.id}
-                            className={`bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer ${darkMode ? "dark:bg-gray-900" : ""
-                                }`}
+                            className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer dark:bg-gray-900 dark:border dark:border-gray-700 border border-transparent"
                             data-aos="zoom-in"
                             data-aos-delay={article.id * 100} // Staggered animation based on article ID
                         >
@@ -59,7 +56,7 @@ export default function News() {
                                 <h3 className="text-white text-lg font-bold mt-2">
                                     {article.title}
                                 </h3>
-                                <p className="text-gray-400 dark:text-gray-300 text-sm mt-3">
+                                <p className="text-gray-400 text-sm mt-3">
                                     {article.description}
                                 </p>
                             </div>

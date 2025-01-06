@@ -3,7 +3,7 @@ import whoImg from '/who-we-are.jpg';
 
 export default function WhoWeAre() {
     return (
-        <div className="bg-gradient-to-t from-gray-900 to-black min-h-screen flex flex-col justify-center items-center pb-20 dark:bg-black">
+        <div className="bg-gradient-to-t from-gray-900 to-black min-h-screen flex flex-col justify-center items-center dark:bg-black">
             <h4 className="text-pink-500 font-bold text-sm uppercase mb-2 w-11/12 md:w-10/12 lg:w-11/12 gap-5 mx-auto p-5 self-start">
                 Who We Are
             </h4>

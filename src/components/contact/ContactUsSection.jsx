@@ -9,7 +9,7 @@ const ContactUsSection = () => {
     }, []);
 
     return (
-        <div className="bg-gray-900">
+        <div className="bg-gradient-to-b from-gray-900 to-gray-950">
             {/* Gradient Header Section */}
             <div className="h-[400px] bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 text-white flex flex-col items-center justify-center">
                 <div
@@ -27,7 +27,7 @@ const ContactUsSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-6 pt-10">
                 {/* Head Office Card */}
                 <div
-                    className="bg-gray-800 bg-opacity-80 p-8 rounded-lg shadow-lg text-center"
+                    className="bg-gray-800 bg-opacity-80 p-8 rounded-lg shadow-lg text-center dark:bg-gray-900"
                     data-aos="fade-up"
                     data-aos-delay="200"
                 >
@@ -42,7 +42,7 @@ const ContactUsSection = () => {
 
                 {/* Email Us Card */}
                 <div
-                    className="bg-gray-800 bg-opacity-80 p-8 rounded-lg shadow-lg text-center"
+                    className="bg-gray-800 bg-opacity-80 p-8 rounded-lg shadow-lg text-center dark:bg-gray-900"
                     data-aos="fade-up"
                     data-aos-delay="400"
                 >
@@ -57,7 +57,7 @@ const ContactUsSection = () => {
 
                 {/* Let's Talk Card */}
                 <div
-                    className="bg-gray-800 bg-opacity-80 p-8 rounded-lg shadow-lg text-center"
+                    className="bg-gray-800 bg-opacity-80 p-8 rounded-lg shadow-lg text-center dark:bg-gray-900"
                     data-aos="fade-up"
                     data-aos-delay="600"
                 >

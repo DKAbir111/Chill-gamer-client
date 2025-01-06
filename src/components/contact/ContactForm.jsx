@@ -27,7 +27,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center px-4 py-10">
+        <div className="bg-gray-950 text-white min-h-screen flex items-center justify-center px-4 py-10">
             <div
                 className="container mx-auto w-full grid md:grid-cols-2 gap-8 items-center"
                 data-aos="fade-up"
@@ -92,7 +92,7 @@ const ContactForm = () => {
 
                 {/* Right Section */}
                 <div
-                    className="bg-gray-800 p-8 rounded-lg shadow-lg"
+                    className="bg-gray-800 p-8 rounded-lg shadow-lg dark:bg-gray-900"
                     data-aos="fade-bottom"
                 >
                     <h2 className="text-2xl font-bold mb-4">Send us a message</h2>
