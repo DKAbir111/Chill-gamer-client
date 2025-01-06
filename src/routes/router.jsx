@@ -12,6 +12,7 @@ import ReviewDetails from "../components/pages/ReviewDetails";
 import UpdateReview from "../components/pages/UpdateReview";
 import ErrorPage from "../components/pages/ErrorPage";
 import Blog from "../components/pages/Blog";
+import ContactUs from "../components/layouts/ContactUs";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />
+            },
+            {
+                path: "/contact",
+                element: <ContactUs />
             },
             {
                 path: "/blog",

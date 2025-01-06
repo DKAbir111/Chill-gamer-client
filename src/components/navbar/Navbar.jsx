@@ -40,6 +40,9 @@ export default function Navbar() {
                 }>Game WatchList </NavLink>
             </>
         }
+        <NavLink to='/contact' className={({ isActive }) =>
+            isActive ? "text-pink-300" : "text-white"
+        }>Contact Us</NavLink>
     </>
     return (
         <div className={`${darkMode ? "dark" : ""} mb-20`}>

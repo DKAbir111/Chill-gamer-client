@@ -1,8 +1,15 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaLinkedin } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "aos/dist/aos.css"; // Import AOS styles
+import { useEffect } from "react";
+import AOS from "aos";
 
 const ContactForm = () => {
+    useEffect(() => {
+        AOS.init({ duration: 1000 }); // Initialize AOS with default duration
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -21,9 +28,12 @@ const ContactForm = () => {
 
     return (
         <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center px-4">
-            <div className="container mx-auto w-full grid md:grid-cols-2 gap-8 items-center">
+            <div
+                className="container mx-auto w-full grid md:grid-cols-2 gap-8 items-center"
+                data-aos="fade-up"
+            >
                 {/* Left Section */}
-                <div>
+                <div data-aos="fade-right">
                     <h3 className="text-pink-500 uppercase tracking-wide text-sm">
                         Get in touch
                     </h3>
@@ -81,7 +91,10 @@ const ContactForm = () => {
                 </div>
 
                 {/* Right Section */}
-                <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+                <div
+                    className="bg-gray-800 p-8 rounded-lg shadow-lg"
+                    data-aos="fade-bottom"
+                >
                     <h2 className="text-2xl font-bold mb-4">Send us a message</h2>
                     <p className="text-gray-400 mb-6">
                         Share your thoughts about the latest games, suggest improvements, or
@@ -132,6 +145,7 @@ const ContactForm = () => {
                         <button
                             type="submit"
                             className="btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-none text-white w-full mt-6"
+                            data-aos="flip-up"
                         >
                             Send Message
                         </button>
