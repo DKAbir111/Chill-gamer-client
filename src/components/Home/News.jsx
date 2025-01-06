@@ -33,7 +33,7 @@ export default function News() {
                 >
                     {articles.map((article) => (
                         <Link
-                            to={`/blog/${article.id}`} // Use dynamic routing for unique blog pages
+                            to={`/blog`} // Use dynamic routing for unique blog pages
                             key={article.id}
                             className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer dark:bg-gray-900 dark:border dark:border-gray-700 border border-transparent"
                             data-aos="zoom-in"
