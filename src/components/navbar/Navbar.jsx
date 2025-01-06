@@ -24,6 +24,9 @@ export default function Navbar() {
         <NavLink to='/allreview' className={({ isActive }) =>
             isActive ? "text-pink-300" : "text-white"
         }>All Reviews</NavLink>
+        <NavLink to='/blog' className={({ isActive }) =>
+            isActive ? "text-pink-300" : "text-white"
+        }>Blog</NavLink>
         {
             user && <>
                 <NavLink to='/addreview' className={({ isActive }) =>

@@ -6,6 +6,7 @@ import Trending from "../Home/Trending";
 import { AuthContext } from "../../Context/AuthContext";
 import Title from "../title/Title";
 import WhoWeAre from "../Home/WhoWeAre";
+import News from "../Home/News";
 
 
 export default function HomeLayout() {
@@ -18,6 +19,7 @@ export default function HomeLayout() {
             <Adventure />
             <Trending />
             <WhoWeAre />
+            <News />
         </div>
     )
 }

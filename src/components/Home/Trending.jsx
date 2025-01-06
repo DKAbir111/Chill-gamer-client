@@ -15,7 +15,7 @@ const Trending = () => {
                     <h4 className="text-pink-500 font-bold text-sm uppercase mb-2">
                         Trending Games
                     </h4>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                    <h2 className="text-3xl md:text-4xl font-semibold mb-4">
                         Level Up Your Play with <br /> Chill Gamer&apos;s Top Picks
                     </h2>
                     <p className="text-gray-400 mb-8">
