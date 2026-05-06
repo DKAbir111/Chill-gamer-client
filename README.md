@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎮 Chill Gamer
+# 🎮 Chill Gamer II
 
 ### *A Game Review Platform — Explore, Rate & Chill*
 
